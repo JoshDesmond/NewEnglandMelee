@@ -353,7 +353,7 @@ const App = () => {
               <h3 className="text-xl font-bold text-gray-800">Calendar</h3>
             </div>
             <p className="text-gray-600 mb-4">
-              View our comprehensive calendar of all upcoming Melee events in New England, including weeklies and majors.
+              View our comprehensive calendar of all upcoming Melee events in New England, including weeklies, monthlies, and majors.
             </p>
             <a href="/calendar" className="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
               See full calendar
@@ -366,7 +366,7 @@ const App = () => {
           <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
             <div className="flex items-center mb-4">
               <User className="text-blue-600 mr-3" size={24} />
-              <h3 className="text-xl font-bold text-gray-800">Community Policy</h3>
+              <h3 className="text-xl font-bold text-gray-800">Code of Conduct</h3>
             </div>
             <p className="text-gray-600 mb-4">
               Review our commitment to maintaining a safe, respectful, and inclusive environment at all NEM events.
@@ -420,7 +420,7 @@ const App = () => {
                 <li><a href="/blog" className="text-gray-300 hover:text-white transition">Blog</a></li>
                 <li><a href="/calendar" className="text-gray-300 hover:text-white transition">Calendar</a></li>
                 <li><a href="/wavelength" className="text-gray-300 hover:text-white transition">Wavelength 2025</a></li>
-                <li><a href="/policy" className="text-gray-300 hover:text-white transition">Community Policy</a></li>
+                <li><a href="/code-of-conduct" className="text-gray-300 hover:text-white transition">Code of Conduct</a></li>
               </ul>
             </div>
             
@@ -428,16 +428,15 @@ const App = () => {
               <h3 className="text-lg font-semibold mb-4">Resources</h3>
               <ul className="space-y-2">
                 <li><a href="https://start.gg" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition">Start.GG</a></li>
-                <li><a href="https://discord.gg/newenglandmelee" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition">Discord</a></li>
+                <li><a href="https://discord.gg/TODO" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition">Discord</a></li>
                 <li><a href="https://slippi.gg" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition">Slippi</a></li>
-                <li><a href="https://www.ssbwiki.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition">SmashWiki</a></li>
-                <li><a href="https://smashboards.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition">SmashBoards</a></li>
+                <li><a href="https://melee.tv/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition">Melee.tv</a></li>
               </ul>
             </div>
           </div>
           
           <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
-            <p>&copy; {new Date().getFullYear()} New England Melee. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()}</p>
             <p className="mt-2">
               Super Smash Bros. Melee is a property of Nintendo. This site is not affiliated with or endorsed by Nintendo.
             </p>
