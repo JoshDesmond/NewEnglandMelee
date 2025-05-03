@@ -91,7 +91,6 @@ const App = () => {
             <a href="/blog" className="text-white hover:text-blue-300 transition">Blog</a>
             <a href="/calendar" className="text-white hover:text-blue-300 transition">Calendar</a>
             <a href="/shop" className="text-white hover:text-blue-300 transition">Shop</a>
-            <a href="/wavelength" className="text-white hover:text-blue-300 transition">Wavelength 2025</a>
             <a href="/code-of-conduct" className="text-white hover:text-blue-300 transition">Code of Conduct</a>
           </nav>
           
@@ -115,7 +114,6 @@ const App = () => {
               <a href="/blog" className="text-white hover:text-blue-300 transition" onClick={() => setMobileMenuOpen(false)}>Blog</a>
               <a href="/calendar" className="text-white hover:text-blue-300 transition" onClick={() => setMobileMenuOpen(false)}>Calendar</a>
               <a href="/shop" className="text-white hover:text-blue-300 transition" onClick={() => setMobileMenuOpen(false)}>Shop</a>
-              <a href="/wavelength" className="text-white hover:text-blue-300 transition" onClick={() => setMobileMenuOpen(false)}>Wavelength 2025</a>
               <a href="/code-of-conduct" className="text-white hover:text-blue-300 transition" onClick={() => setMobileMenuOpen(false)}>Code of Conduct</a>
             </nav>
           </div>
@@ -147,7 +145,7 @@ const App = () => {
           <div className="bg-white rounded-xl shadow-md p-6 md:p-8">
             <p className="text-lg text-gray-700 mb-4">
               New England Melee (NEM) is a vibrant community dedicated to the competitive play and celebration of Super Smash Bros. Melee throughout the New England region. 
-              From weekly local events to major tournaments like Wavelength, we foster competitive growth, community building, and grassroots organizing.
+              From weekly local events to major tournaments we foster competitive growth, community building, and grassroots organizing.
             </p>
             <p className="text-lg text-gray-700">
               Whether you're a seasoned competitor or a newcomer curious about the scene, NEM offers a welcoming environment for all players. 
@@ -291,44 +289,6 @@ const App = () => {
           </div>
         </section>
         
-        {/* Major Event Highlight - Wavelength 2025 */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-6 text-gray-800">Wavelength 2025</h2>
-          <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl shadow-lg p-6 md:p-8 text-white">
-            <div className="flex flex-col md:flex-row items-center md:space-x-8">
-              <div className="mb-6 md:mb-0 w-full md:w-1/3">
-                <div className="bg-white bg-opacity-20 rounded-lg p-4 aspect-square flex items-center justify-center">
-                  <span className="text-6xl font-extrabold">λ</span>
-                </div>
-              </div>
-              <div className="w-full md:w-2/3 space-y-4">
-                <h3 className="text-2xl font-bold">New England's Premier Melee Tournament</h3>
-                <p className="text-lg">
-                  Mark your calendars for Wavelength 2025, bringing together the best Melee players from across the region and beyond for our biggest event of the year!
-                </p>
-                <div className="flex flex-wrap gap-4 mt-4">
-                  <div className="bg-white bg-opacity-25 px-4 py-2 rounded-md">
-                    <div className="text-sm opacity-75">Date</div>
-                    <div className="font-bold">August 15-17, 2025</div>
-                  </div>
-                  <div className="bg-white bg-opacity-25 px-4 py-2 rounded-md">
-                    <div className="text-sm opacity-75">Location</div>
-                    <div className="font-bold">Boston Convention Center</div>
-                  </div>
-                </div>
-                <div className="pt-4">
-                  <a 
-                    href="/wavelength" 
-                    className="bg-white text-blue-600 hover:bg-gray-100 font-bold py-2 px-6 rounded-lg inline-flex items-center transition"
-                  >
-                    Learn More
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        
         {/* Quick Links Section */}
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
@@ -419,7 +379,6 @@ const App = () => {
                 <li><a href="#" className="text-gray-300 hover:text-white transition">Home</a></li>
                 <li><a href="/blog" className="text-gray-300 hover:text-white transition">Blog</a></li>
                 <li><a href="/calendar" className="text-gray-300 hover:text-white transition">Calendar</a></li>
-                <li><a href="/wavelength" className="text-gray-300 hover:text-white transition">Wavelength 2025</a></li>
                 <li><a href="/code-of-conduct" className="text-gray-300 hover:text-white transition">Code of Conduct</a></li>
               </ul>
             </div>
