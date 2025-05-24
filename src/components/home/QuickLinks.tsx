@@ -40,7 +40,7 @@ const QuickLinks: React.FC = () => {
       icon: <Calendar className="text-blue-600" size={24} />,
       title: 'Calendar',
       description: 'View our comprehensive calendar of all upcoming Melee events in New England, including weeklies, monthlies, and majors.',
-      href: '/calendar',
+      href: 'https://calendar.google.com/calendar/u/0/embed?src=86oup09opi66vbhshrftu4uijs@group.calendar.google.com&ctz=America/New_York',
       linkText: 'See full calendar'
     },
     {

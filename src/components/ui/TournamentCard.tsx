@@ -30,32 +30,32 @@ const TournamentCard: React.FC<TournamentCardProps> = ({ tournament }) => {
           </div>
           <div className="mt-2">
             <span className="text-gray-700 font-medium">
-              {tournament.isRecurring 
+              {tournament.isRecurring
                 ? <span className="flex items-center">
-                    <Calendar size={16} className="mr-1 text-gray-400" />
-                    Recurring: {tournament.weeklySchedule}
-                  </span>
+                  <Calendar size={16} className="mr-1 text-gray-400" />
+                  Recurring: {tournament.weeklySchedule}
+                </span>
                 : <span className="flex items-center">
-                    <Calendar size={16} className="mr-1 text-gray-400" />
-                    {formatDate(tournament.dateTime)}
-                  </span>
+                  <Calendar size={16} className="mr-1 text-gray-400" />
+                  {formatDate(tournament.dateTime)}
+                </span>
               }
             </span>
           </div>
         </div>
         <div className="flex flex-wrap gap-2">
-          <a 
-            href={tournament.startggLink} 
-            target="_blank" 
+          <a
+            href={tournament.startggLink}
+            target="_blank"
             rel="noopener noreferrer"
             className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-md text-sm font-medium flex items-center"
           >
             <Award size={16} className="mr-1" />
             start.gg
           </a>
-          <a 
-            href={tournament.discordLink} 
-            target="_blank" 
+          <a
+            href={tournament.discordLink}
+            target="_blank"
             rel="noopener noreferrer"
             className="bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md text-sm font-medium flex items-center"
           >

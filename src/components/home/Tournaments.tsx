@@ -17,7 +17,7 @@ const Tournaments: React.FC<TournamentsProps> = ({ tournaments }) => {
           View Full Calendar
         </a>
       </div>
-      
+
       <div className="bg-white rounded-xl shadow-md p-6 md:p-8">
         {/* Map Component Placeholder */}
         <div className="w-full h-80 bg-gray-200 rounded-lg mb-8 overflow-hidden relative">
@@ -26,19 +26,19 @@ const Tournaments: React.FC<TournamentsProps> = ({ tournaments }) => {
             <p className="text-gray-500">Interactive tournament map would display here</p>
             {/* For each tournament, we would render a marker at (tournament.lat, tournament.lng) */}
             {tournaments.map(tournament => (
-              <div 
+              <div
                 key={tournament.id}
                 className="absolute w-4 h-4 bg-red-500 rounded-full transform -translate-x-2 -translate-y-2"
-                style={{ 
+                style={{
                   // Simplified positioning for mockup
-                  left: `${((tournament.lng + 80) / 15) * 100}%`, 
+                  left: `${((tournament.lng + 80) / 15) * 100}%`,
                   top: `${100 - ((tournament.lat - 40) / 10) * 100}%`
                 }}
               />
             ))}
           </div>
         </div>
-        
+
         <div className="mb-4 text-sm text-gray-600">
           <p>
             <span className="font-semibold">Data sources:</span> Our tournament data is pulled from{' '}
@@ -47,7 +47,7 @@ const Tournaments: React.FC<TournamentsProps> = ({ tournaments }) => {
             <a href="/calendar" className="text-blue-600 hover:underline">community calendar</a>.
           </p>
         </div>
-        
+
         {/* Tournament List */}
         <div className="space-y-6">
           {tournaments.map(tournament => (

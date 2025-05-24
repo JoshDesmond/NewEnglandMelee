@@ -31,9 +31,9 @@ const DiscordSection: React.FC = () => {
               <span>And more!</span>
             </li>
           </ul>
-          <a 
-            href="https://discord.gg/newenglandmelee" 
-            target="_blank" 
+          <a
+            href="https://discord.com/invite/zfemYAwWbj"
+            target="_blank"
             rel="noopener noreferrer"
             className="bg-white text-indigo-700 hover:bg-gray-100 font-bold py-3 px-6 rounded-lg inline-flex items-center transition"
           >

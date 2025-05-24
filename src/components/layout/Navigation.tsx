@@ -7,21 +7,21 @@ interface NavigationProps {
 
 const Navigation: React.FC<NavigationProps> = ({ className = '', onLinkClick }) => {
   const navItems = [
-    { href: '#', label: 'Home' },
-    { href: '#tournaments', label: 'Tournaments' },
+    { href: '/#', label: 'Home' },
+    { href: '/#tournaments', label: 'Tournaments' },
     { href: '/blog', label: 'Blog' },
-    { href: '/calendar', label: 'Calendar' },
+    { href: 'https://calendar.google.com/calendar/u/0/embed?src=86oup09opi66vbhshrftu4uijs@group.calendar.google.com&ctz=America/New_York', label: 'Calendar' },
     { href: '/shop', label: 'Shop' },
     { href: '/code-of-conduct', label: 'Code of Conduct' },
   ];
 
   return (
-    <nav className={className}>
+    <nav className={`flex ${className}`}>
       {navItems.map((item) => (
         <a
           key={item.href}
           href={item.href}
-          className="text-white hover:text-blue-300 transition"
+          className="text-white text-xl hover:text-blue-300 transition px-4"
           onClick={onLinkClick}
         >
           {item.label}

@@ -65,28 +65,27 @@ const Footer: React.FC = () => {
               ))}
             </div>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li><a href="#" className="text-gray-300 hover:text-white transition">Home</a></li>
               <li><a href="/blog" className="text-gray-300 hover:text-white transition">Blog</a></li>
-              <li><a href="/calendar" className="text-gray-300 hover:text-white transition">Calendar</a></li>
+              <li><a href="https://calendar.google.com/calendar/u/0/embed?src=86oup09opi66vbhshrftu4uijs@group.calendar.google.com&ctz=America/New_York" className="text-gray-300 hover:text-white transition">Calendar</a></li>
               <li><a href="/code-of-conduct" className="text-gray-300 hover:text-white transition">Code of Conduct</a></li>
             </ul>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-semibold mb-4">Resources</h3>
             <ul className="space-y-2">
               <li><a href="https://start.gg" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition">Start.GG</a></li>
-              <li><a href="https://discord.gg/TODO" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition">Discord</a></li>
               <li><a href="https://slippi.gg" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition">Slippi</a></li>
               <li><a href="https://melee.tv/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition">Melee.tv</a></li>
             </ul>
           </div>
         </div>
-        
+
         <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
           <p>&copy; {new Date().getFullYear()}</p>
           <p className="mt-2">
