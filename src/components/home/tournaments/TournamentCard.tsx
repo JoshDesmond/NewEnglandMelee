@@ -1,6 +1,6 @@
 import React from 'react';
 import { MapPin, Calendar, Award, MessageCircle } from 'lucide-react';
-import { Tournament } from '../../lib/types';
+import { Tournament } from '../../../lib/types';
 
 interface TournamentCardProps {
   tournament: Tournament;

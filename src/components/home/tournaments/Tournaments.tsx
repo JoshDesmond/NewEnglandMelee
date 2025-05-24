@@ -1,13 +1,32 @@
 import React from 'react';
 import { Calendar } from 'lucide-react';
-import { Tournament } from '../../lib/types';
-import TournamentCard from '../ui/TournamentCard';
+import TournamentCard from './TournamentCard';
+import TournamentMap from './TournamentMap';
+import { useTournaments } from './useTournaments';
 
-interface TournamentsProps {
-  tournaments: Tournament[];
-}
+const Tournaments: React.FC = () => {
+  const { tournaments, loading, error } = useTournaments();
 
-const Tournaments: React.FC<TournamentsProps> = ({ tournaments }) => {
+  if (loading) {
+    return (
+      <section id="tournaments" className="mb-16">
+        <div className="flex justify-center items-center h-64">
+          <p className="text-gray-600">Loading tournaments...</p>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section id="tournaments" className="mb-16">
+        <div className="flex justify-center items-center h-64">
+          <p className="text-red-600">Error loading tournaments: {error.message}</p>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="tournaments" className="mb-16">
       <div className="flex justify-between items-center mb-6">
@@ -19,25 +38,7 @@ const Tournaments: React.FC<TournamentsProps> = ({ tournaments }) => {
       </div>
 
       <div className="bg-white rounded-xl shadow-md p-6 md:p-8">
-        {/* Map Component Placeholder */}
-        <div className="w-full h-80 bg-gray-200 rounded-lg mb-8 overflow-hidden relative">
-          {/* This would be your actual map component */}
-          <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
-            <p className="text-gray-500">Interactive tournament map would display here</p>
-            {/* For each tournament, we would render a marker at (tournament.lat, tournament.lng) */}
-            {tournaments.map(tournament => (
-              <div
-                key={tournament.id}
-                className="absolute w-4 h-4 bg-red-500 rounded-full transform -translate-x-2 -translate-y-2"
-                style={{
-                  // Simplified positioning for mockup
-                  left: `${((tournament.lng + 80) / 15) * 100}%`,
-                  top: `${100 - ((tournament.lat - 40) / 10) * 100}%`
-                }}
-              />
-            ))}
-          </div>
-        </div>
+        <TournamentMap tournaments={tournaments} />
 
         <div className="mb-4 text-sm text-gray-600">
           <p>
@@ -48,7 +49,6 @@ const Tournaments: React.FC<TournamentsProps> = ({ tournaments }) => {
           </p>
         </div>
 
-        {/* Tournament List */}
         <div className="space-y-6">
           {tournaments.map(tournament => (
             <TournamentCard key={tournament.id} tournament={tournament} />
