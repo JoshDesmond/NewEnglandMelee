@@ -9,7 +9,7 @@ const Header: React.FC = () => {
   return (
     <header className="absolute top-0 left-0 right-0 z-50">
       <div className="flex items-start justify-between px-2 py-4">
-        {/* Logo - minimal padding */}
+        {/* Logo - top left*/}
         <div className="flex items-start">
           <img
             src={logoImg}
@@ -21,10 +21,10 @@ const Header: React.FC = () => {
           />
         </div>
           
-        {/* Desktop Navigation - top right with minimal padding */}
+        {/* Desktop Navigation - top right */}
         <Navigation className="hidden md:flex items-start" />
           
-        {/* Mobile hamburger menu button */}
+        {/* Mobile hamburger menu button - top right */}
         <div className="md:hidden flex items-center">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -36,7 +36,7 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Hamburger Navigation Menu */}
+      {/* Mobile Hamburger Popup Navigation Menu */}
       {mobileMenuOpen && (
         <div className="fixed top-0 left-0 right-0 bg-gray-900 bg-opacity-95 shadow-lg md:hidden">
           <div className="p-2">

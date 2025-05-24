@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, Calendar, User } from 'lucide-react';
+import { BookOpen, ShoppingCart, User } from 'lucide-react';
 
 interface QuickLinkCardProps {
   icon: React.ReactNode;
@@ -37,17 +37,17 @@ const QuickLinks: React.FC = () => {
       linkText: 'Read the blog'
     },
     {
-      icon: <Calendar className="text-blue-600" size={24} />,
-      title: 'Calendar',
-      description: 'View our comprehensive calendar of all upcoming Melee events in New England, including weeklies, monthlies, and majors.',
-      href: 'https://calendar.google.com/calendar/u/0/embed?src=86oup09opi66vbhshrftu4uijs@group.calendar.google.com&ctz=America/New_York',
-      linkText: 'See full calendar'
+      icon: <ShoppingCart className="text-blue-600" size={24} />,
+      title: 'Shop',
+      description: 'Check out our store for New England Melee merchandise!\n\n',
+      href: 'https://shop.newenglandmelee.com',
+      linkText: 'Shop for Merch'
     },
     {
       icon: <User className="text-blue-600" size={24} />,
       title: 'Code of Conduct',
       description: 'Review our commitment to maintaining a safe, respectful, and inclusive environment at all NEM events.',
-      href: '/policy',
+      href: '/code-of-conduct',
       linkText: 'Read our policy'
     }
   ];

@@ -1,4 +1,3 @@
-// services/startgg.ts
 import { Tournament } from '../lib/types';
 
 /**
@@ -9,11 +8,11 @@ const CACHE_DURATION = 5 * 60 * 1000;
 
 async function queryStartGG(): Promise<Tournament[]> {
   // Your actual GraphQL query implementation
-  const response = await fetch('https://api.start.gg/gql/alpha', {
+ /*  const response = await fetch('https://api.start.gg/gql/alpha', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ query: '...' }) // TODO
-  });
+  }); */
   // Parse and return data
   return []
 }
