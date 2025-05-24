@@ -52,6 +52,7 @@ const mockTournaments: Tournament[] = [
   }
 ];
 
+// TODO replace with query to services/startgg.ts
 const fetchTournaments = async (): Promise<Tournament[]> => {
   // Simulate API delay
   await new Promise(resolve => setTimeout(resolve, 1000));

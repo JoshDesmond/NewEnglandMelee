@@ -8,7 +8,7 @@ const Header: React.FC = () => {
 
   return (
     <header className="absolute top-0 left-0 right-0 z-50">
-      <div className="flex items-start justify-between px-2 py-4"> {/* TODO add transparent glass background to help with readability of links */}
+      <div className="flex items-start justify-between px-2 py-4">
         {/* Logo - minimal padding */}
         <div className="flex items-start">
           <img

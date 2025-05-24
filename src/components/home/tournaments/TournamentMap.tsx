@@ -5,6 +5,11 @@ interface TournamentMapProps {
   tournaments: Tournament[];
 }
 
+/**
+ * See: https://claude.ai/share/21d5380e-62da-4b36-9507-7729ff9693e9
+ * TL;DR: Use Leaflet with React-Leaflet, https://react-leaflet.js.org/
+ */
+
 const TournamentMap: React.FC<TournamentMapProps> = ({ tournaments }) => {
   return (
     <div className="w-full h-80 bg-gray-200 rounded-lg mb-8 overflow-hidden relative">
