@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import Navigation from '../Navigation';
-import logoImg from '../../../assets/NEM_Logo_Transparent.png';
 
 const HomeHeader: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
