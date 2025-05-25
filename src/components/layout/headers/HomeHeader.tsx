@@ -30,7 +30,7 @@ const HomeHeader: React.FC = () => {
           <div className="p-4">
             <div className="flex items-start justify-between">
               <Navigation
-                className="flex flex-col space-y-4"
+                className="flex flex-col space-y-4 pt-2"
                 onLinkClick={() => setMobileMenuOpen(false)}
               />
             </div>

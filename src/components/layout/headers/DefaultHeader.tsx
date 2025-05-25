@@ -28,7 +28,7 @@ const DefaultHeader: React.FC = () => {
         <div className="md:hidden flex items-center">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-white p-2"
+            className="text-white p-2 relative z-[100]"
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -38,20 +38,13 @@ const DefaultHeader: React.FC = () => {
 
       {/* Mobile Navigation Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-gray-800 shadow-lg">
-          <div className="p-2">
-            <div className="flex items-center justify-between">
+        <div className="fixed top-0 left-0 right-0 bg-gray-900 bg-opacity-95 shadow-lg md:hidden z-50">
+          <div className="p-4">
+            <div className="flex items-start justify-between">
               <Navigation
-                className="flex flex-col space-y-4"
+                className="flex flex-col space-y-4 pt-2"
                 onLinkClick={() => setMobileMenuOpen(false)}
               />
-              <button
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-white p-2"
-                aria-label="Close menu"
-              >
-                <X size={24} />
-              </button>
             </div>
           </div>
         </div>
