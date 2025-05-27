@@ -1,0 +1,17 @@
+[Unit]
+Description=Strapi CMS
+After=network.target
+
+[Service]
+Type=simple
+User=nem
+Group=nem
+WorkingDirectory=/home/nem/code/NewEnglandMelee/strapi
+Environment=NODE_ENV=production
+Environment=PORT=1337
+ExecStart=/usr/bin/npm start
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
