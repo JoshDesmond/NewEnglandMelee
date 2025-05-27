@@ -1,6 +1,13 @@
 #!/bin/bash
 set -e
 
+# Check if .env file exists
+if [ ! -f "/home/nem/code/NewEnglandMelee/strapi/.env" ]; then
+    echo "Error: .env file not found in /home/nem/code/NewEnglandMelee/strapi/"
+    echo "Please ensure the .env file exists before configuring the service."
+    exit 1
+fi
+
 echo "=== Configuring Strapi Service ==="
 
 # Copy service file
