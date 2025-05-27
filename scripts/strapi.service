@@ -9,9 +9,14 @@ Group=nem
 WorkingDirectory=/home/nem/code/NewEnglandMelee/strapi
 Environment=NODE_ENV=production
 Environment=PORT=1337
+Environment=NODE_OPTIONS="--max-old-space-size=768"
 ExecStart=/usr/bin/npm start
-Restart=always
-RestartSec=5
+Restart=on-failure
+RestartSec=10
+# Add memory limits
+MemoryLimit=768M
+# Add CPU limits
+CPUQuota=80%
 
 [Install]
 WantedBy=multi-user.target
