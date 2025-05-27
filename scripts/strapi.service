@@ -9,13 +9,14 @@ Group=nem
 WorkingDirectory=/home/nem/code/NewEnglandMelee/strapi
 Environment=NODE_ENV=production
 Environment=PORT=1337
-Environment=NODE_OPTIONS="--max-old-space-size=768"
-ExecStart=/usr/bin/npm start
+Environment=NODE_OPTIONS="--max-old-space-size=1024"
+ExecStart=/usr/bin/node /home/nem/code/NewEnglandMelee/strapi/dist/src/index.js
+# Alternative: ExecStart=/usr/bin/npm start
 Restart=on-failure
 RestartSec=10
-# Add memory limits
-MemoryLimit=768M
-# Add CPU limits
+StandardOutput=journal
+StandardError=journal
+MemoryLimit=1G
 CPUQuota=80%
 
 [Install]

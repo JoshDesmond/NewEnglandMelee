@@ -9,13 +9,27 @@ echo "=== Deploying Strapi CMS ==="
 
 cd $STRAPI_DIR
 
+# Stop the service first
+echo "Stopping Strapi service..."
+sudo systemctl stop strapi
+
+# Update dependencies and build
+echo "Installing dependencies..."
+npm ci --only=production
+
 echo "Building Strapi..."
-npm install
 npm run build
 
-echo "Restarting Strapi service..."
-sudo systemctl restart strapi
+# Start the service
+echo "Starting Strapi service..."
+sudo systemctl start strapi
 sudo systemctl enable strapi
 
-echo "Strapi deployment complete!"
-
+# Check if it started successfully
+sleep 5
+if sudo systemctl is-active --quiet strapi; then
+    echo "✅ Strapi deployed successfully"
+else
+    echo "❌ Strapi failed to start"
+    sudo journalctl -u strapi --lines=20
+fi
