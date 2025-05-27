@@ -7,11 +7,16 @@ STRAPI_DIR=$PROJECT_DIR/strapi
 
 echo "=== Deploying Strapi CMS ==="
 
-cd $STRAPI_DIR
-
-# Stop the service first
-echo "Stopping Strapi service..."
+# Stop services to free up memory
+echo "Stopping services..."
+sudo systemctl stop nginx
 sudo systemctl stop strapi
+
+# Clear system caches
+echo "Clearing system caches..."
+sudo sync && sudo sysctl vm.drop_caches=3
+
+cd $STRAPI_DIR
 
 # Update dependencies and build
 echo "Installing dependencies..."
@@ -20,12 +25,13 @@ npm ci --only=production
 echo "Building Strapi..."
 npm run build
 
-# Start the service
-echo "Starting Strapi service..."
+# Start the services
+echo "Starting services..."
 sudo systemctl start strapi
 sudo systemctl enable strapi
+sudo systemctl start nginx
 
-# Check if it started successfully
+# Check if Strapi started successfully
 sleep 5
 if sudo systemctl is-active --quiet strapi; then
     echo "✅ Strapi deployed successfully"
