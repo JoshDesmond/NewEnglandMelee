@@ -10,6 +10,7 @@ echo "=== Deploying Strapi CMS ==="
 cd $STRAPI_DIR
 
 echo "Building Strapi..."
+npm install
 npm run build
 
 echo "Restarting Strapi service..."
@@ -17,3 +18,4 @@ sudo systemctl restart strapi
 sudo systemctl enable strapi
 
 echo "Strapi deployment complete!"
+
