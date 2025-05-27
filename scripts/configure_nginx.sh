@@ -7,12 +7,12 @@ if [ "$EUID" -ne 0 ]; then
     exit 1
 fi
 
-# Define paths
-PROJECT_DIR=~/code/NewEnglandMelee
-NGINX_CONF_SOURCE="$PROJECT_DIR/scripts/nem_nginx.conf"
+# Define paths - using current directory since we know where we are
+NGINX_CONF_SOURCE="$(dirname "$0")/nem_nginx.conf"
 NGINX_CONF_DEST="/etc/nginx/conf.d/newenglandmelee.conf"
 
 echo "=== Configuring Nginx ==="
+echo "Using configuration from: $NGINX_CONF_SOURCE"
 
 # Check if source config exists
 if [ ! -f "$NGINX_CONF_SOURCE" ]; then
