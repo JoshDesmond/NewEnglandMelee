@@ -43,7 +43,7 @@ export interface SocialLink {
 }
 
 // Helper type for tournament service
-export interface TournamentServiceConfig {
+export interface CalendarServiceConfig {
   calendarId: string;
   apiKey: string;
 } 

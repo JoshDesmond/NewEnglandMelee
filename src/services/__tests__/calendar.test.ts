@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeAll, afterAll, beforeEach, vi } from 'vitest';
-import { tournamentService } from '../calendar';
+import { calendarService } from '../calendar';
 import { GoogleCalendarResponse } from '../../lib/types';
 import mockCalendarResponseJson from './calendarResponse.json';
 
@@ -30,7 +30,7 @@ describe('TournamentService Unit Tests', () => {
       json: async () => mockCalendarResponse
     });
 
-    const tournaments = await tournamentService.getTournaments();
+    const tournaments = await calendarService.getTournaments();
 
     expect(tournaments).toHaveLength(mockCalendarResponse.items.length);
     

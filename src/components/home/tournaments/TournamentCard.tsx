@@ -30,16 +30,10 @@ const TournamentCard: React.FC<TournamentCardProps> = ({ tournament }) => {
           </div>
           <div className="mt-2">
             <span className="text-gray-700 font-medium">
-              {tournament.isRecurring
-                ? <span className="flex items-center">
-                  <Calendar size={16} className="mr-1 text-gray-400" />
-                  Recurring: {tournament.weeklySchedule}
-                </span>
-                : <span className="flex items-center">
-                  <Calendar size={16} className="mr-1 text-gray-400" />
-                  {formatDate(tournament.dateTime)}
-                </span>
-              }
+              <span className="flex items-center">
+                <Calendar size={16} className="mr-1 text-gray-400" />
+                {formatDate(tournament.dateTime)}
+              </span>
             </span>
           </div>
         </div>
