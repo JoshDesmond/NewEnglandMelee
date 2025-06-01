@@ -1,18 +1,49 @@
+// Google Calendar API Types
+export interface GoogleCalendarEvent {
+  id: string;
+  summary: string;
+  location?: string;
+  description?: string;
+  start: {
+    dateTime?: string;
+    date?: string;
+    timeZone?: string;
+  };
+  end: {
+    dateTime?: string;
+    date?: string;
+    timeZone?: string;
+  };
+  htmlLink: string;
+  created: string;
+  updated: string;
+}
+
+export interface GoogleCalendarResponse {
+  items: GoogleCalendarEvent[];
+}
+
+// Application Types
 export interface Tournament {
-  id: number;
+  id: string;
   name: string;
-  address: string;
+  address?: string;
   dateTime: string;
-  startggLink: string;
-  discordLink: string;
-  lat: number;
-  lng: number;
-  isRecurring: boolean;
-  weeklySchedule?: string;
+  startggLink?: string;
+  discordLink?: string;
+  url: string;
+  created: string;
+  updated: string;
 }
 
 export interface SocialLink {
   href: string;
   icon: React.ReactNode;
   label: string;
+}
+
+// Helper type for tournament service
+export interface TournamentServiceConfig {
+  calendarId: string;
+  apiKey: string;
 } 
