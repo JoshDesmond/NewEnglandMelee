@@ -1,0 +1,199 @@
+{
+  "kind": "calendar#events",
+  "etag": "\"p33ftn9vbqn68q0o\"",
+  "summary": "New England Melee Tournament Schedule",
+  "description": "Schedule for New England Super Smash Bros Melee Tournaments\nPlease include tournament start times, city, and state. (eg. \"11am Hall of Gaming, Wallingford, CT\")\nStates by color: CT = Blue, MA = Red, RI = Lilac, NH = Yellow, VT = Green, ME = Light Blue. ",
+  "updated": "2025-05-31T02:34:07.083Z",
+  "timeZone": "America/New_York",
+  "accessRole": "reader",
+  "defaultReminders": [],
+  "nextPageToken": "Cj8KMAouCgwIiPndpwUQgMjr9QISHgocChpmbWYyNzloNGdpZzR2ZmtpNzFyOW5hZzJnMBoLCPWC8sEGEKig21XAPgE=",
+  "items": [
+    {
+      "kind": "calendar#event",
+      "etag": "\"2851009525530000\"",
+      "id": "e6l408bnnpcpfs41cmhhfc0rhk",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=ZTZsNDA4Ym5ucGNwZnM0MWNtaGhmYzByaGsgODZvdXAwOW9waTY2dmJoc2hyZnR1NHVpanNAZw",
+      "created": "2015-03-04T21:07:10.000Z",
+      "updated": "2015-03-04T21:32:42.765Z",
+      "summary": "The Workshop 2, Lawrence, MA",
+      "location": "Lawrence, MA, USA",
+      "creator": {
+        "email": "thomas.lavin26@gmail.com",
+        "displayName": "Thomas Lavin"
+      },
+      "organizer": {
+        "email": "86oup09opi66vbhshrftu4uijs@group.calendar.google.com",
+        "displayName": "New England Melee Tournament Schedule",
+        "self": true
+      },
+      "start": {
+        "dateTime": "2015-03-14T17:30:00-04:00",
+        "timeZone": "UTC"
+      },
+      "end": {
+        "dateTime": "2015-03-14T21:00:00-04:00",
+        "timeZone": "UTC"
+      },
+      "iCalUID": "e6l408bnnpcpfs41cmhhfc0rhk@google.com",
+      "sequence": 0,
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"2851009559104000\"",
+      "id": "h8u264mk2ng4svs9ec128f46qs",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=aDh1MjY0bWsybmc0c3ZzOWVjMTI4ZjQ2cXMgODZvdXAwOW9waTY2dmJoc2hyZnR1NHVpanNAZw",
+      "created": "2015-03-04T20:43:27.000Z",
+      "updated": "2015-03-04T21:32:59.552Z",
+      "summary": "Super Smash Saturdays, Merrimack, NH",
+      "location": "Merrimack, NH, USA",
+      "creator": {
+        "email": "thomas.lavin26@gmail.com",
+        "displayName": "Thomas Lavin"
+      },
+      "organizer": {
+        "email": "86oup09opi66vbhshrftu4uijs@group.calendar.google.com",
+        "displayName": "New England Melee Tournament Schedule",
+        "self": true
+      },
+      "start": {
+        "dateTime": "2015-04-04T16:30:00-04:00",
+        "timeZone": "UTC"
+      },
+      "end": {
+        "dateTime": "2015-04-04T23:00:00-04:00",
+        "timeZone": "UTC"
+      },
+      "iCalUID": "h8u264mk2ng4svs9ec128f46qs@google.com",
+      "sequence": 0,
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"2851009700642000\"",
+      "id": "c3u0e4am9esuninn2lug3gphas",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=YzN1MGU0YW05ZXN1bmlubjJsdWczZ3BoYXMgODZvdXAwOW9waTY2dmJoc2hyZnR1NHVpanNAZw",
+      "created": "2015-03-04T20:37:57.000Z",
+      "updated": "2015-03-04T21:34:10.321Z",
+      "summary": "Super Smash Saturdays, Merrimack, NH",
+      "location": "Merrimack, NH, USA",
+      "creator": {
+        "email": "thomas.lavin26@gmail.com",
+        "displayName": "Thomas Lavin"
+      },
+      "organizer": {
+        "email": "86oup09opi66vbhshrftu4uijs@group.calendar.google.com",
+        "displayName": "New England Melee Tournament Schedule",
+        "self": true
+      },
+      "start": {
+        "dateTime": "2015-04-18T16:30:00-04:00",
+        "timeZone": "UTC"
+      },
+      "end": {
+        "dateTime": "2015-04-18T23:00:00-04:00",
+        "timeZone": "UTC"
+      },
+      "transparency": "transparent",
+      "iCalUID": "c3u0e4am9esuninn2lug3gphas@google.com",
+      "sequence": 1,
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"2851010419650000\"",
+      "id": "rv26mhgesjnbni5nv102i2m0ic",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=cnYyNm1oZ2Vzam5ibmk1bnYxMDJpMm0waWMgODZvdXAwOW9waTY2dmJoc2hyZnR1NHVpanNAZw",
+      "created": "2015-03-04T21:39:58.000Z",
+      "updated": "2015-03-04T21:40:09.825Z",
+      "summary": "EVO 2015, Las Vegas, NV",
+      "creator": {
+        "email": "whatasob@gmail.com",
+        "displayName": "Michael Tian"
+      },
+      "organizer": {
+        "email": "86oup09opi66vbhshrftu4uijs@group.calendar.google.com",
+        "displayName": "New England Melee Tournament Schedule",
+        "self": true
+      },
+      "start": {
+        "date": "2015-07-17"
+      },
+      "end": {
+        "date": "2015-07-20"
+      },
+      "transparency": "transparent",
+      "iCalUID": "rv26mhgesjnbni5nv102i2m0ic@google.com",
+      "sequence": 0,
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"2851010762024000\"",
+      "id": "dm0a8iau9hvttkeoep52jjvsj8",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=ZG0wYThpYXU5aHZ0dGtlb2VwNTJqanZzajggODZvdXAwOW9waTY2dmJoc2hyZnR1NHVpanNAZw",
+      "created": "2015-03-04T20:09:59.000Z",
+      "updated": "2015-03-04T21:43:01.012Z",
+      "summary": "Super Smash Saturdays, Merrimack, NH",
+      "location": "Merrimack, NH",
+      "creator": {
+        "email": "whatasob@gmail.com",
+        "displayName": "Michael Tian"
+      },
+      "organizer": {
+        "email": "86oup09opi66vbhshrftu4uijs@group.calendar.google.com",
+        "displayName": "New England Melee Tournament Schedule",
+        "self": true
+      },
+      "start": {
+        "dateTime": "2015-03-07T16:30:00-05:00",
+        "timeZone": "UTC"
+      },
+      "end": {
+        "dateTime": "2015-03-07T23:00:00-05:00",
+        "timeZone": "UTC"
+      },
+      "iCalUID": "dm0a8iau9hvttkeoep52jjvsj8@google.com",
+      "sequence": 1,
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"2851010833568000\"",
+      "id": "fmf279h4gig4vfki71r9nag2g0",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=Zm1mMjc5aDRnaWc0dmZraTcxcjluYWcyZzAgODZvdXAwOW9waTY2dmJoc2hyZnR1NHVpanNAZw",
+      "created": "2015-03-04T20:12:31.000Z",
+      "updated": "2015-03-04T21:43:36.784Z",
+      "summary": "BUST 2, Boston, MA",
+      "location": "Boston, MA",
+      "creator": {
+        "email": "whatasob@gmail.com",
+        "displayName": "Michael Tian"
+      },
+      "organizer": {
+        "email": "86oup09opi66vbhshrftu4uijs@group.calendar.google.com",
+        "displayName": "New England Melee Tournament Schedule",
+        "self": true
+      },
+      "start": {
+        "dateTime": "2015-04-11T11:00:00-04:00",
+        "timeZone": "UTC"
+      },
+      "end": {
+        "dateTime": "2015-04-11T12:00:00-04:00",
+        "timeZone": "UTC"
+      },
+      "transparency": "transparent",
+      "iCalUID": "fmf279h4gig4vfki71r9nag2g0@google.com",
+      "sequence": 1,
+      "eventType": "default"
+    }
+  ]
+} 
