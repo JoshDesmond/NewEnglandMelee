@@ -34,6 +34,9 @@ export interface Tournament {
   url: string;
   created: string;
   updated: string;
+  isWeekly: boolean;
+  isBiweekly: boolean;
+  recurringGroupId?: string;  // Used to group recurring tournaments together
 }
 
 export interface SocialLink {

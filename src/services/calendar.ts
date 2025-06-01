@@ -1,6 +1,7 @@
 // src/services/calendar.ts
 
 import { GoogleCalendarEvent, GoogleCalendarResponse, Tournament, CalendarServiceConfig } from '../lib/types';
+import { tournamentProcessor } from '../lib/tournaments/tournamentProcessor';
 
 class CalendarService {
   private config: CalendarServiceConfig;
@@ -34,41 +35,6 @@ class CalendarService {
     return data.items || [];
   }
 
-  // TODO, move parsing logic to a separate class or file.
-  // TODO add a filter during processing to remove events from outside of New England, (.includes('MA', 'RI', 'CT', 'VT', 'NH', 'ME'))
-  // TODO add processing logic to identify recurring events
-  private parseEventToTournament(event: GoogleCalendarEvent): Tournament {
-    const startTime = event.start.dateTime || event.start.date || '';
-    
-    // Extract start.gg and Discord links from description if they exist
-    const description = event.description || '';
-    const startggLink = this.extractStartggLink(description) || undefined;
-    const discordLink = this.extractDiscordLink(description) || undefined;
-
-    return {
-      id: event.id,
-      name: event.summary || 'Untitled Tournament',
-      address: event.location || undefined,
-      dateTime: startTime,
-      startggLink,
-      discordLink,
-      url: event.htmlLink,
-      created: event.created,
-      updated: event.updated,
-    };
-  }
-
-  private extractStartggLink(description: string): string | null {
-    const match = description.match(/start\.gg\/[^\s]+/);
-    return match ? `https://${match[0]}` : null;
-  }
-
-  private extractDiscordLink(description: string): string | null {
-    const match = description.match(/discord\.gg\/[^\s]+/);
-    return match ? `https://${match[0]}` : null;
-    // TODO: You can add a hardcoded list of discord links to use as a second point of reference in case there is nothing in the description    
-  }
-
   async getTournaments(startDate?: Date): Promise<Tournament[]> {
     const start = startDate || new Date();
     const NUM_DAYS_TO_FETCH = 30;
@@ -76,7 +42,23 @@ class CalendarService {
 
     try {
       const events = await this.fetchEvents(start, end);
-      return events.map(event => this.parseEventToTournament(event));
+      console.log(`Fetched ${events.length} events from calendar`);
+      
+      const tournaments = tournamentProcessor.processCalendarEvents(events);
+      
+      // Log recurring tournament detection results
+      const recurringTournaments = tournaments.filter(t => t.isWeekly || t.isBiweekly);
+      console.log(`Found ${recurringTournaments.length} recurring tournaments:`, 
+        recurringTournaments.map(t => ({
+          name: t.name,
+          date: t.dateTime,
+          isWeekly: t.isWeekly,
+          isBiweekly: t.isBiweekly,
+          groupId: t.recurringGroupId
+        }))
+      );
+
+      return tournaments;
     } catch (error) {
       console.error('Error fetching tournaments:', error);
       throw error;
