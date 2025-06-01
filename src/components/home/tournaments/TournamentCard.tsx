@@ -38,24 +38,31 @@ const TournamentCard: React.FC<TournamentCardProps> = ({ tournament }) => {
           </div>
         </div>
         <div className="flex flex-wrap gap-2">
-          <a
-            href={tournament.startggLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-md text-sm font-medium flex items-center"
-          >
-            <Award size={16} className="mr-1" />
-            start.gg
-          </a>
-          <a
-            href={tournament.discordLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md text-sm font-medium flex items-center"
-          >
-            <MessageCircle size={16} className="mr-1" />
-            Discord
-          </a>
+          {tournament.startggLink && (
+            <a
+              href={tournament.startggLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-md text-sm font-medium flex items-center transition-colors"
+            >
+              <Award size={16} className="mr-1" />
+              start.gg
+            </a>
+          )}
+          {tournament.discordLink && (
+            <a
+              href={tournament.discordLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md text-sm font-medium flex items-center transition-colors"
+            >
+              <MessageCircle size={16} className="mr-1" />
+              Discord
+            </a>
+          )}
+          {!tournament.startggLink && !tournament.discordLink && (
+            <span className="text-sm text-gray-500 italic">No links available</span>
+          )}
         </div>
       </div>
     </div>

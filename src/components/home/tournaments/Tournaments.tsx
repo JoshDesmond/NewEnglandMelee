@@ -40,14 +40,6 @@ const Tournaments: React.FC = () => {
       <div className="bg-white rounded-xl shadow-md p-6 md:p-8">
         <TournamentMap tournaments={tournaments} />
 
-        <div className="mb-4 text-sm text-gray-600">
-          <p>
-            <span className="font-semibold">Data sources:</span> Our tournament data is pulled from{' '}
-            <a href="https://start.gg" className="text-blue-600 hover:underline">start.gg</a>.
-            For a more comprehensive view including recurring events, check our{' '}
-            <a href="/calendar" className="text-blue-600 hover:underline">community calendar</a>.
-          </p>
-        </div>
 
         <div className="space-y-6">
           {tournaments.map(tournament => (
