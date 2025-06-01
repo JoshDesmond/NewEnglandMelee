@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { calendarService } from '../calendar';
+import { calendarService } from '../../../server/calendar';
 
 describe('TournamentService Integration Tests', () => {
   it('should fetch at least 5 tournaments with required fields', async () => {

@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeAll, afterAll, beforeEach, vi } from 'vitest';
-import { calendarService } from '../calendar';
+import { calendarService } from '../../../server/calendar';
 import { GoogleCalendarResponse } from '../../lib/types';
 import mockCalendarResponseJson from './calendarResponse.json';
 

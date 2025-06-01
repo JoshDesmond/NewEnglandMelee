@@ -1,0 +1,23 @@
+TournamentMap.tsx - Map Implementation Context
+=============================================
+
+1. **Map Library**
+   - Used Leaflet with React-Leaflet for interactive mapping, as it is lightweight, open-source, and easy to integrate with React.
+
+2. **Geocoding**
+   - Tournament data only includes addresses, not GPS coordinates.
+   - Used the `nominatim-browser` package to geocode addresses to latitude/longitude on the client side.
+   - Nominatim (OpenStreetMap) is free and does not require an API key, making it suitable for hobby and low-traffic projects.
+   - Geocoding is performed in a `useEffect` hook, and results are cached in component state for the session.
+
+3. **Map Centering and Zoom**
+   - The map is centered on New England (approx. [42.3601, -71.0589]) with a zoom level of 8, to show the region where most tournaments are expected.
+
+4. **Markers and Popups**
+   - Each tournament with a valid geocoded address is shown as a marker.
+   - Popups display the tournament name, address, date, and a start.gg link if available.
+   - Used the default Leaflet marker icon, copied to the public directory for compatibility with React/Next.js static asset serving.
+
+5. **Loading and Error Handling**
+   - While geocoding, a loading message is shown.
+   - If geocoding fails, an error message is displayed.

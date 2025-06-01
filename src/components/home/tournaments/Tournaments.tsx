@@ -20,8 +20,13 @@ const Tournaments: React.FC = () => {
   if (error) {
     return (
       <section id="tournaments" className="mb-16">
-        <div className="flex justify-center items-center h-64">
-          <p className="text-red-600">Error loading tournaments: {error.message}</p>
+        <div className="flex flex-col justify-center items-center h-64">
+          <p className="text-red-600">Error loading tournaments: {error.error}</p>
+          {error.details && (
+            <p className="text-red-500 text-sm mt-2">
+              {typeof error.details === 'string' ? error.details : JSON.stringify(error.details)}
+            </p>
+          )}
         </div>
       </section>
     );

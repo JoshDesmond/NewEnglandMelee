@@ -1,10 +1,4 @@
-import { Tournament } from '../lib/types';
-
-/**
- * Tournaments should be cached locally for 5 minutes
- */
-let tournamentCache: { data: Tournament[]; timestamp: number } | null = null;
-const CACHE_DURATION = 5 * 60 * 1000;
+import { Tournament } from '../src/lib/types';
 
 async function queryStartGG(): Promise<Tournament[]> {
   // Your actual GraphQL query implementation
@@ -20,11 +14,6 @@ async function queryStartGG(): Promise<Tournament[]> {
 export async function fetchTournaments(): Promise<Tournament[]> {
   const now = Date.now();
   
-  if (tournamentCache && (now - tournamentCache.timestamp) < CACHE_DURATION) {
-    return tournamentCache.data;
-  }
-  
   const data = await queryStartGG();
-  tournamentCache = { data, timestamp: now };
   return data;
 }

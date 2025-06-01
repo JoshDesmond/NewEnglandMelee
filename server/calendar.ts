@@ -1,13 +1,15 @@
 // src/services/calendar.ts
 
-import { GoogleCalendarEvent, GoogleCalendarResponse, Tournament, CalendarServiceConfig } from '../lib/types';
-import { tournamentProcessor } from '../lib/tournaments/tournamentProcessor';
+import { GoogleCalendarEvent, GoogleCalendarResponse, Tournament, CalendarServiceConfig } from '@shared/types';
+import { tournamentProcessor } from './tournaments/tournamentProcessor';
+import { geocodingService } from './geocoding';
 
 class CalendarService {
   private config: CalendarServiceConfig;
 
   constructor(config: CalendarServiceConfig) {
     this.config = config;
+    console.log(`Created Calendar Service with config: ${JSON.stringify(this.config)}`);
   }
 
   private async fetchEvents(startDate: Date, endDate: Date): Promise<GoogleCalendarEvent[]> {
@@ -31,7 +33,7 @@ class CalendarService {
       throw new Error(`Calendar API error: ${response.status} ${response.statusText}`);
     }
 
-    const data: GoogleCalendarResponse = await response.json();
+    const data = await response.json() as GoogleCalendarResponse;
     return data.items || [];
   }
 
@@ -45,9 +47,34 @@ class CalendarService {
       console.log(`Fetched ${events.length} events from calendar`);
       
       const tournaments = tournamentProcessor.processCalendarEvents(events);
+      console.info(`Processed ${tournaments.length} tournaments from calendar events`);
       
+      // Get unique addresses from tournaments
+      const addresses = [...new Set(tournaments
+        .filter(t => t.address)
+        .map(t => t.address as string))];
+
+      // Geocode all addresses at once
+      const geocodedLocations = await geocodingService.geocodeAddresses(addresses);
+      
+      // Log geocoding result summary
+      const successfulGeocodes = Object.values(geocodedLocations).filter(coords => coords !== undefined).length;
+      console.log(`Successfully geocoded ${successfulGeocodes} out of ${addresses.length} addresses`);
+
+      // Add coordinates to tournaments, ensuring undefined instead of null
+      const tournamentsWithCoords = tournaments.map(tournament => {
+        const coordinates = tournament.address ? geocodedLocations[tournament.address] : undefined;
+        if (tournament.address && !coordinates) {
+          console.warn(`Failed to geocode address for tournament "${tournament.name}": ${tournament.address}`);
+        }
+        return {
+          ...tournament,
+          coordinates
+        };
+      });
+
       // Log recurring tournament detection results
-      const recurringTournaments = tournaments.filter(t => t.isWeekly || t.isBiweekly);
+      const recurringTournaments = tournamentsWithCoords.filter(t => t.isWeekly || t.isBiweekly);
       console.log(`Found ${recurringTournaments.length} recurring tournaments:`, 
         recurringTournaments.map(t => ({
           name: t.name,
@@ -58,7 +85,7 @@ class CalendarService {
         }))
       );
 
-      return tournaments;
+      return tournamentsWithCoords;
     } catch (error) {
       console.error('Error fetching tournaments:', error);
       throw error;
@@ -69,7 +96,7 @@ class CalendarService {
 // Export singleton instance with configuration
 export const calendarService = new CalendarService({
   calendarId: '86oup09opi66vbhshrftu4uijs@group.calendar.google.com',
-  apiKey: import.meta.env.VITE_GOOGLE_CALENDAR_API_KEY || '',
+  apiKey: process.env.GOOGLE_CALENDAR_API_KEY || '',
 });
 
 // Export types for use in components

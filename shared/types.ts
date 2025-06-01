@@ -27,15 +27,16 @@ export interface GoogleCalendarResponse {
 export interface Tournament {
   id: string;
   name: string;
-  address?: string;
   dateTime: string;
+  address?: string;
+  coordinates?: [number, number];  // Tuple type for lat/lng
   startggLink?: string;
   discordLink?: string;
   url: string;
   created: string;
   updated: string;
-  isWeekly: boolean;
-  isBiweekly: boolean;
+  isWeekly?: boolean;
+  isBiweekly?: boolean;
   recurringGroupId?: string;  // Used to group recurring tournaments together
 }
 
