@@ -15,19 +15,55 @@ const icon = new Icon({
   shadowSize: [41, 41]
 });
 
+// Multi-tournament icon for locations with multiple events
+const multiIcon = new Icon({
+  iconUrl: '/images/marker-icon.png', // You could create a different icon here
+  iconRetinaUrl: '/images/marker-icon-2x.png',
+  shadowUrl: '/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
+
 interface TournamentMapProps {
   tournaments: Tournament[];
 }
 
-/**
- * See: https://claude.ai/share/21d5380e-62da-4b36-9507-7729ff9693e9
- * TL;DR: Use Leaflet with React-Leaflet, https://react-leaflet.js.org/
- */
+interface GroupedLocation {
+  coordinates: [number, number];
+  tournaments: Tournament[];
+}
 
 const TournamentMap: React.FC<TournamentMapProps> = ({ tournaments }) => {
   // Center on New England (roughly)
   const center: [number, number] = [42.3601, -71.0589];
   const zoom = 8;
+
+  // Group tournaments by location
+  const groupedLocations: GroupedLocation[] = React.useMemo(() => {
+    const locationMap = new Map<string, Tournament[]>();
+    
+    tournaments.forEach((tournament) => {
+      if (!tournament.coordinates) return;
+      
+      // Create a key based on coordinates (rounded to avoid floating point issues)
+      const coordKey = `${tournament.coordinates[0].toFixed(6)},${tournament.coordinates[1].toFixed(6)}`;
+      
+      if (!locationMap.has(coordKey)) {
+        locationMap.set(coordKey, []);
+      }
+      locationMap.get(coordKey)!.push(tournament);
+    });
+
+    return Array.from(locationMap.entries()).map(([coordKey, tournaments]) => {
+      const [lat, lng] = coordKey.split(',').map(Number);
+      return {
+        coordinates: [lat, lng] as [number, number],
+        tournaments: tournaments.sort((a, b) => new Date(a.dateTime).getTime() - new Date(b.dateTime).getTime())
+      };
+    });
+  }, [tournaments]);
 
   return (
     <div className="w-full h-80 rounded-lg mb-8 overflow-hidden relative">
@@ -41,32 +77,44 @@ const TournamentMap: React.FC<TournamentMapProps> = ({ tournaments }) => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {tournaments.map((tournament) => {
-          if (!tournament.coordinates) return null;
+        {groupedLocations.map((location, index) => {
+          const isMultiple = location.tournaments.length > 1;
           
           return (
             <Marker
-              key={tournament.id}
-              position={tournament.coordinates}
-              icon={icon}
+              key={`location-${index}`}
+              position={location.coordinates}
+              icon={isMultiple ? multiIcon : icon}
             >
-              <Popup>
+              <Popup maxWidth={300}>
                 <div className="p-1">
-                  <h3 className="font-bold text-sm mb-1">{tournament.name}</h3>
-                  <p className="text-xs text-gray-600 mb-1">{tournament.address}</p>
-                  <p className="text-xs text-gray-600">
-                    {new Date(tournament.dateTime).toLocaleDateString()}
-                  </p>
-                  {tournament.startggLink && (
-                    <a
-                      href={tournament.startggLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs text-blue-600 hover:text-blue-800 mt-1 block"
-                    >
-                      View on start.gg
-                    </a>
+                  {isMultiple && (
+                    <div className="text-xs text-gray-500 mb-2 font-medium">
+                      {location.tournaments.length} tournaments at this location
+                    </div>
                   )}
+                  {location.tournaments.map((tournament, tournamentIndex) => (
+                    <div 
+                      key={tournament.id} 
+                      className={`${tournamentIndex > 0 ? 'border-t border-gray-200 pt-2 mt-2' : ''}`}
+                    >
+                      <h3 className="font-bold text-sm mb-1">{tournament.name}</h3>
+                      <p className="text-xs text-gray-600 mb-1">{tournament.address}</p>
+                      <p className="text-xs text-gray-600">
+                        {new Date(tournament.dateTime).toLocaleDateString()}
+                      </p>
+                      {tournament.startggLink && (
+                        <a
+                          href={tournament.startggLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xs text-blue-600 hover:text-blue-800 mt-1 block"
+                        >
+                          View on start.gg
+                        </a>
+                      )}
+                    </div>
+                  ))}
                 </div>
               </Popup>
             </Marker>
@@ -77,4 +125,4 @@ const TournamentMap: React.FC<TournamentMapProps> = ({ tournaments }) => {
   );
 };
 
-export default TournamentMap; 
+export default TournamentMap;

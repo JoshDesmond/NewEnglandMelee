@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import { calendarService } from './calendar';
 import { Tournament, GoogleCalendarEvent } from '@shared/types';
+import { geocodingService } from './geocoding';
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -12,50 +13,51 @@ app.use(cors({
   origin: process.env.FRONTEND_URL || 'http://localhost:5173' // Vite's default port
 }));
 
-// Simple in-memory cache
-interface CacheEntry<T> {
-  data: T;
-  timestamp: number;
+// Simple in-memory cache for tournaments
+let tournamentsCache: Tournament[] | null = null;
+let lastFetchTime: number | null = null;
+
+// Background refresh function
+async function refreshTournamentsCache() {
+  try {
+    console.log('Background refresh: Fetching fresh tournament data');
+    const tournaments = await calendarService.getTournaments();
+    tournamentsCache = tournaments;
+    lastFetchTime = Date.now();
+    console.log(`Background refresh: Successfully cached ${tournaments.length} tournaments`);
+  } catch (error) {
+    console.error('Background refresh: Error fetching tournaments:', error);
+    // Don't update cache on error - keep using old data
+  }
 }
 
-const cache: {
-  tournaments?: CacheEntry<Tournament[]>;
-} = {};
+// Start background refresh
+const REFRESH_INTERVAL = 6 * 60 * 1000; // 6 minutes in milliseconds
+setInterval(refreshTournamentsCache, REFRESH_INTERVAL);
 
-const CACHE_DURATION = 60 * 60 * 1000; // 1 hour in milliseconds
-
-// Helper to check if cache is valid
-const isCacheValid = (entry: CacheEntry<any> | undefined): boolean => {
-  if (!entry) return false;
-  return Date.now() - entry.timestamp < CACHE_DURATION;
-};
+// Initial fetch
+refreshTournamentsCache().catch(error => {
+  console.error('Initial tournament fetch failed:', error);
+});
 
 // Single endpoint for tournaments
 app.get('/api/tournaments', async (req, res) => {
   console.log('Received request to /api/tournaments');
-  console.log('Request headers:', req.headers);
   
   try {
-    // Check cache first
-    if (isCacheValid(cache.tournaments)) {
-      const tournaments = cache.tournaments!.data;
-      const tournamentsWithCoords = tournaments.filter(t => t.coordinates !== undefined).length;
-      console.log(`Serving ${tournaments.length} tournaments from cache (${tournamentsWithCoords} have coordinates)`);
-      return res.json(tournaments);
+    // If we have cached data, serve it immediately
+    if (tournamentsCache !== null) {
+      console.log(`Serving ${tournamentsCache.length} tournaments from cache`);
+      return res.json(tournamentsCache);
     }
 
-    // Fetch fresh data
-    console.log('Fetching fresh tournament data');
+    // If no cache exists (should only happen on first request after server start),
+    // fetch fresh data
+    console.log('No cache available, fetching fresh tournament data');
     const tournaments = await calendarService.getTournaments();
-    const tournamentsWithCoords = tournaments.filter(t => t.coordinates !== undefined).length;
-    console.log(`Fetched ${tournaments.length} tournaments (${tournamentsWithCoords} have coordinates)`);
-
-    // Update cache
-    cache.tournaments = {
-      data: tournaments,
-      timestamp: Date.now()
-    };
-
+    tournamentsCache = tournaments;
+    lastFetchTime = Date.now();
+    
     console.log('Successfully fetched tournaments, sending response');
     res.json(tournaments);
   } catch (error) {
@@ -82,7 +84,11 @@ app.get('/api/tournaments', async (req, res) => {
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok' });
+  res.json({ 
+    status: 'ok',
+    lastFetchTime: lastFetchTime ? new Date(lastFetchTime).toISOString() : null,
+    tournamentCount: tournamentsCache?.length ?? 0
+  });
 });
 
 app.listen(port, () => {

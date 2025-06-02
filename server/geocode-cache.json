@@ -1,0 +1,86 @@
+{
+  "4 Yawkey Way, Boston, MA 02215": {
+    "coordinates": [
+      42.3475307,
+      -71.0995694
+    ],
+    "timestamp": 1748826487483
+  },
+  "Portland, ME, USA": {
+    "coordinates": [
+      43.670822,
+      -70.28438249999999
+    ],
+    "timestamp": 1748826799905
+  },
+  "Game Underground, 349 Moody St, Waltham, MA 02453, USA": {
+    "coordinates": [
+      42.3702911,
+      -71.23720279999999
+    ],
+    "timestamp": 1748826799955
+  },
+  "Colchester, VT, USA": {
+    "coordinates": [
+      44.5516209,
+      -73.1636932
+    ],
+    "timestamp": 1748826799957
+  },
+  "28 Railroad Square, Nashua, NH 03064, USA": {
+    "coordinates": [
+      42.7648828,
+      -71.4664377
+    ],
+    "timestamp": 1748826799961
+  },
+  "Game On!, 943 Namquid Dr, Warwick, RI 02888, USA": {
+    "coordinates": [
+      41.7419444,
+      -71.4058333
+    ],
+    "timestamp": 1748826799963
+  },
+  "One Up Games, 2 Wilkins Dr, Plainville, MA 02762, USA": {
+    "coordinates": [
+      42.0095363,
+      -71.3070479
+    ],
+    "timestamp": 1748826799970
+  },
+  "Prodigy, 116 Pleasant St, Easthampton, MA 01027, USA": {
+    "coordinates": [
+      42.2727365,
+      -72.6630914
+    ],
+    "timestamp": 1748826799972
+  },
+  "25 Union St, Worcester, MA 01608, USA": {
+    "coordinates": [
+      42.2699704,
+      -71.79825029999999
+    ],
+    "timestamp": 1748826799976
+  },
+  "Balance Patch, 1031 Commonwealth Avenue, Boston, MA 02215, USA": {
+    "coordinates": [
+      42.35208240000001,
+      -71.1218004
+    ],
+    "timestamp": 1748826799978
+  },
+  "Hall of Gaming, 150 Center St, Wallingford, CT 06492, USA": {
+    "coordinates": [
+      41.4555768,
+      -72.821321
+    ],
+    "timestamp": 1748826799979
+  },
+  "Buffalo Wild Wings, 85 Western Ave, South Portland, ME 04106, USA": {
+    "coordinates": [
+      43.6352109,
+      -70.3180138
+    ],
+    "timestamp": 1748826800020
+  }
+}
