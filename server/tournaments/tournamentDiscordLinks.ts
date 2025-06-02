@@ -4,7 +4,19 @@
  * that might be missing or incorrect in the calendar event descriptions.
  */
 export const tournamentDiscordLinks: Record<string, string> = {
-  'Pho Tai Melee': 'https://discord.gg/D9jxfMMV4c',
+  'Pho Tai Melee - Nashua, NH': 'https://discord.gg/D9jxfMMV4c',
+  'Melee Monday @ Bumper\'s - Portland, ME': 'https://discord.gg/mRWsGrK5qc',
+  '[21+] Free Play Melee - Worcester, MA':'https://discord.gg/FyrTm2q63G',
+  'New Game Plus Revival - Boston, MA': 'https://discord.gg/WwJZ3yY967',
+  'Buffalo Wild Wednesdays - South Portland, ME': 'https://discord.gg/nmEYnqsK9C',
+  'One Up Melee - Plainville, MA': 'https://discord.gg/n8gPKbAMk4',
+  'Hall of Gaming - Wallingford, CT': 'https://discord.gg/6JFQPWqKJU',
+  'Prodigy Weekly - Easthampton, MA': 'https://discord.gg/Cw55cewdjg',
+  'GGRI - Warwick, RI': 'https://discord.gg/WKEveRGekX',
+  'Stickman\'s Garage - Colchester, VT': 'https://discord.gg/XwzS8fgQfZ',
+  'Pho Tai BIG MODE - Nashua, NH': 'https://discord.gg/PRF8bMxFBD',
+  'Mass Madness - Waltham, MA': 'https://discord.gg/4h4nbvNRbJ',
+  'Prodigy Classic - Easthampton, MA': 'https://discord.gg/HwCcxF3W6h',
 } as const;
 
 /**
