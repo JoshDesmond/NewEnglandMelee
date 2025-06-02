@@ -1,7 +1,7 @@
 import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Icon } from 'leaflet';
-import { Tournament } from '../../../lib/types';
+import { Tournament } from '../../../../shared/types';
 import 'leaflet/dist/leaflet.css';
 
 // Fix for default marker icons in Leaflet with Next.js
@@ -36,9 +36,9 @@ interface GroupedLocation {
 }
 
 const TournamentMap: React.FC<TournamentMapProps> = ({ tournaments }) => {
-  // Center on New England (roughly)
-  const center: [number, number] = [42.3601, -71.0589];
-  const zoom = 8;
+  // Center on Portsmouth, NH
+  const center: [number, number] = [43.0718, -70.7626];
+  const zoom = 6; // Zoomed out slightly to show more of New England
 
   // Group tournaments by location
   const groupedLocations: GroupedLocation[] = React.useMemo(() => {
