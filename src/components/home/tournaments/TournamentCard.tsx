@@ -34,6 +34,12 @@ const TournamentCard: React.FC<TournamentCardProps> = ({ tournament }) => {
                 <Calendar size={16} className="mr-1 text-gray-400" />
                 {formatDate(tournament.dateTime)}
               </span>
+              {tournament.isWeekly && (
+                <span className="block text-xs text-gray-500 mt-1 ml-5">Weekly tournament</span>
+              )}
+              {tournament.isBiweekly && (
+                <span className="block text-xs text-gray-500 mt-1 ml-5">Biweekly tournament</span>
+              )}
             </span>
           </div>
         </div>

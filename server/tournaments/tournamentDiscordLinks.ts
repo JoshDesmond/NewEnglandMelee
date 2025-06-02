@@ -17,6 +17,7 @@ export const tournamentDiscordLinks: Record<string, string> = {
   'Pho Tai BIG MODE - Nashua, NH': 'https://discord.gg/PRF8bMxFBD',
   'Mass Madness - Waltham, MA': 'https://discord.gg/4h4nbvNRbJ',
   'Prodigy Classic - Easthampton, MA': 'https://discord.gg/HwCcxF3W6h',
+  'KD HOUSE - Warwick, RI': 'https://discord.gg/FrAApr6JVB',
 } as const;
 
 /**

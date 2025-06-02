@@ -1,4 +1,5 @@
-import { GoogleCalendarEvent, Tournament } from '../types';
+import { GoogleCalendarEvent, Tournament } from '../../shared/types';
+import { getTournamentDiscordLink } from './tournamentDiscordLinks';
 
 export class TournamentProcessor {
   // TODO: Add support for processing tournaments from multiple sources (start.gg, etc)
@@ -59,15 +60,16 @@ export class TournamentProcessor {
     }
 
     const startTime = event.start.dateTime || event.start.date || '';
+    const tournamentName = event.summary || 'Untitled Tournament';
     
     // Extract start.gg and Discord links from description if they exist
     const description = event.description || '';
     const startggLink = this.extractStartggLink(description) || undefined;
-    const discordLink = this.extractDiscordLink(description) || undefined;
+    const discordLink = this.extractDiscordLink(description, tournamentName) || undefined;
 
     const tournament: Tournament = {
       id: event.id,
-      name: event.summary || 'Untitled Tournament',
+      name: tournamentName,
       address: event.location || undefined,
       dateTime: startTime,
       startggLink,
@@ -160,10 +162,15 @@ export class TournamentProcessor {
     return directMatch ? directMatch[0] : null;
   }
 
-  private extractDiscordLink(description: string): string | null {
+  private extractDiscordLink(description: string, tournamentName: string): string | null {
+    // First try to find Discord link in description
     const match = description.match(/discord\.gg\/[^\s]+/);
-    return match ? `https://${match[0]}` : null;
-    // TODO: Add a hardcoded list of discord links to use as a second point of reference
+    if (match) {
+      return `https://${match[0]}`;
+    }
+
+    // Fallback to hardcoded cache
+    return getTournamentDiscordLink(tournamentName) || null;
   }
 
   /**
