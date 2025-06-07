@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll, afterAll, vi } from 'vitest';
-import request from 'supertest';
-import express from 'express';
-import cors from 'cors';
+import * as request from 'supertest';
+import * as express from 'express';
+import * as cors from 'cors';
 import { calendarService } from '../calendar';
 
 // Create a test app instance
@@ -28,7 +28,7 @@ vi.mock('../calendar', () => ({
 }));
 
 // Add the routes to the test app
-app.get('/api/tournaments', async (req, res) => {
+app.get('/api/tournaments', async (req: express.Request, res: express.Response) => {
   try {
     const tournaments = await calendarService.getTournaments();
     res.json(tournaments);
@@ -37,7 +37,7 @@ app.get('/api/tournaments', async (req, res) => {
   }
 });
 
-app.get('/api/health', (req, res) => {
+app.get('/api/health', (req: express.Request, res: express.Response) => {
   res.json({ status: 'ok' });
 });
 

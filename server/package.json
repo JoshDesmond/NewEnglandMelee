@@ -4,7 +4,9 @@
   "description": "Simple server for New England Melee tournament data",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
+    "build:shared": "tsc -b ../shared",
+    "build:server": "tsc -b",
+    "build": "npm run build:shared && npm run build:server",
     "start": "node dist/index.js",
     "dev": "ts-node-dev --respawn --transpile-only index.ts",
     "test": "vitest"
