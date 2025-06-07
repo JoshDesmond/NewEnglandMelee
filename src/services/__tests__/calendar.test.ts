@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeAll, afterAll, beforeEach, vi } from 'vitest';
 import { calendarService } from '../../../server/calendar';
-import { GoogleCalendarResponse } from '../../lib/types';
+import { GoogleCalendarResponse } from '@shared/types';
 import mockCalendarResponseJson from './calendarResponse.json';
 
 // Assert the type of the imported JSON
