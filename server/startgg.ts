@@ -1,4 +1,4 @@
-import { Tournament } from '../src/lib/types';
+import { Tournament } from '@shared/types';
 
 async function queryStartGG(): Promise<Tournament[]> {
   // Your actual GraphQL query implementation

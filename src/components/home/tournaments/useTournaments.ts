@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Tournament } from '../../../lib/types';
+import { Tournament } from '@shared/types';
 import { getTournaments } from '../../../services/tournaments';
 
 interface ApiError {
