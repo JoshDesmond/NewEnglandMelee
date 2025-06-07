@@ -13,10 +13,6 @@ if ! command -v pm2 &> /dev/null; then
     sudo npm install -g pm2
 fi
 
-# Stop nginx temporarily to free up memory
-echo "Stopping nginx temporarily..."
-sudo systemctl stop nginx
-
 # Clear system caches
 echo "Clearing system caches..."
 sudo sync && sudo sysctl vm.drop_caches=3
@@ -35,10 +31,6 @@ echo "Starting/restarting Strapi with PM2..."
 pm2 delete new-england-melee-strapi || true  # Remove existing process if it exists
 pm2 start npm --name "new-england-melee-strapi" -- start --time
 pm2 save  # Save the process list for system reboot
-
-# Restart nginx
-echo "Restarting nginx..."
-sudo systemctl start nginx
 
 # Verify deployment
 sleep 5
