@@ -29,5 +29,5 @@
       "@shared/*": ["./shared/*"]
     }
   },
-  "include": ["src", "shared", "server/calendar.ts", "server/geocoding.ts", "server/startgg.ts", "server/tournamentDiscordLinks.ts"]
+  "include": ["src", "shared", "server"]
 }
