@@ -8,6 +8,7 @@ export const tournamentDiscordLinks: Record<string, string> = {
   'Melee Monday @ Bumper\'s - Portland, ME': 'https://discord.gg/mRWsGrK5qc',
   '[21+] Free Play Melee - Worcester, MA':'https://discord.gg/FyrTm2q63G',
   'New Game Plus Revival - Boston, MA': 'https://discord.gg/WwJZ3yY967',
+  'New Gay Plus Revival - Boston, MA': 'https://discord.gg/WwJZ3yY967',
   'Buffalo Wild Wednesdays - South Portland, ME': 'https://discord.gg/nmEYnqsK9C',
   'One Up Melee - Plainville, MA': 'https://discord.gg/n8gPKbAMk4',
   'Hall of Gaming - Wallingford, CT': 'https://discord.gg/6JFQPWqKJU',
@@ -18,6 +19,8 @@ export const tournamentDiscordLinks: Record<string, string> = {
   'Mass Madness - Waltham, MA': 'https://discord.gg/4h4nbvNRbJ',
   'Prodigy Classic - Easthampton, MA': 'https://discord.gg/HwCcxF3W6h',
   'KD HOUSE - Warwick, RI': 'https://discord.gg/FrAApr6JVB',
+  'Melee at the Elm - Worcester, MA': 'https://discord.gg/EFnFhZrs92',
+  'North Corner Smash - Gray, ME': 'https://discord.gg/DyHuZCDNu3',
 } as const;
 
 /**
