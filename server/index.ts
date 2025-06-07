@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import * as express from 'express';
+import { Request, Response } from 'express';
 import * as cors from 'cors';
 import { calendarService } from './calendar';
 import { Tournament } from '@shared/types';
@@ -40,7 +41,7 @@ refreshTournamentsCache().catch(error => {
 });
 
 // Single endpoint for tournaments
-app.get('/api/tournaments', async (req, res) => {
+app.get('/api/tournaments', async (req: Request, res: Response) => {
   console.log('Received request to /api/tournaments');
   
   try {
@@ -82,7 +83,7 @@ app.get('/api/tournaments', async (req, res) => {
 });
 
 // Health check endpoint
-app.get('/api/health', (req, res) => {
+app.get('/api/health', (req: Request, res: Response) => {
   res.json({ 
     status: 'ok',
     lastFetchTime: lastFetchTime ? new Date(lastFetchTime).toISOString() : null,
