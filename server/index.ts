@@ -1,9 +1,8 @@
 import 'dotenv/config';
-import express from 'express';
-import cors from 'cors';
+import * as express from 'express';
+import * as cors from 'cors';
 import { calendarService } from './calendar';
-import { Tournament, GoogleCalendarEvent } from '@shared/types';
-import { geocodingService } from './geocoding';
+import { Tournament } from '@shared/types';
 
 const app = express();
 const port = process.env.PORT || 3001;
