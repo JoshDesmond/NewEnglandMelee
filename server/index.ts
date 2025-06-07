@@ -9,7 +9,7 @@ const port = process.env.PORT || 3001;
 
 // Enable CORS for your frontend
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173' // Vite's default port
+  origin: process.env.FRONTEND_URL || 'https://newenglandmelee.xyz'
 }));
 
 // Simple in-memory cache for tournaments
