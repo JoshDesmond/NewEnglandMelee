@@ -11,19 +11,26 @@
   },
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "author": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "date": {
-      "type": "datetime"
+      "type": "datetime",
+      "required": true
     },
     "excerpt": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "slug": {
-      "type": "integer"
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
     },
     "image": {
       "allowedTypes": [
@@ -36,7 +43,8 @@
       "multiple": false
     },
     "content": {
-      "type": "blocks"
+      "type": "blocks",
+      "required": true
     }
   }
 }

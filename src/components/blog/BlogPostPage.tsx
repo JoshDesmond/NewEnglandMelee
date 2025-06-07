@@ -13,6 +13,37 @@ const BlogPostPage: React.FC = () => {
     return <div className="text-center py-12 text-red-500">Post not found.</div>;
   }
 
+  const renderContent = (content: any[]) => {
+    return content.map((block, index) => {
+      if (block.type === 'paragraph') {
+        return (
+          <p key={index} className="mb-4">
+            {block.children.map((child: any, childIndex: number) => {
+              if (child.type === 'text') {
+                return <span key={childIndex}>{child.text}</span>;
+              }
+              if (child.type === 'link') {
+                return (
+                  <a 
+                    key={childIndex} 
+                    href={child.url} 
+                    className="text-blue-600 hover:text-blue-800 underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {child.children[0].text}
+                  </a>
+                );
+              }
+              return null;
+            })}
+          </p>
+        );
+      }
+      return null;
+    });
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-200 py-16 px-4">
       <article className="max-w-3xl mx-auto bg-white rounded-xl shadow-lg p-8">
@@ -23,7 +54,9 @@ const BlogPostPage: React.FC = () => {
           <span className="mx-2">•</span>
           <span>{new Date(post.date).toLocaleDateString()}</span>
         </div>
-        <div className="text-lg text-gray-800 whitespace-pre-line">{post.content}</div>
+        <div className="text-lg text-gray-800">
+          {renderContent(post.content)}
+        </div>
       </article>
     </div>
   );
