@@ -1,6 +1,6 @@
 import { Tournament } from '@shared/types';
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://newenglandmelee.xyz/api/tournaments';
+const API_URL = import.meta.env.VITE_API_URL || 'https://newenglandmelee.xyz';
 
 export async function getTournaments(): Promise<Tournament[]> {
   console.log('Fetching tournaments from:', `${API_URL}/api/tournaments`);
