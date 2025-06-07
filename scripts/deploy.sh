@@ -16,6 +16,9 @@ cd strapi
 npm install
 cd ..
 
+echo "=== Deploying API Server ==="
+./scripts/deploy_api_server.sh
+
 echo "=== Deploying Strapi ==="
 ./deploy_strapi.sh
 
