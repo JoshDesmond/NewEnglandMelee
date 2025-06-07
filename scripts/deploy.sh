@@ -19,11 +19,17 @@ cd ..
 echo "=== Deploying API Server ==="
 ./scripts/deploy_api_server.sh
 
+# Change back to project root before running next script
+cd $PROJECT_DIR
+
 echo "=== Deploying Strapi ==="
-./deploy_strapi.sh
+./scripts/deploy_strapi.sh
+
+# Change back to project root before running next script
+cd $PROJECT_DIR
 
 echo "=== Deploying Website ==="
-./deploy_website.sh
+./scripts/deploy_website.sh
 
 echo "=== Full Deployment Complete! ==="
 
