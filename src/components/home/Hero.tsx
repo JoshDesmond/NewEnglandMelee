@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
         <img
           src={bannerImg}
           alt="New England Melee banner background"
-          className={`w-full h-full object-cover object-center blur-sm brightness-50 transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+          className={`w-full h-full object-cover object-right blur-sm brightness-50 transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
           style={{ position: 'absolute', inset: 0 }}
         />
       </div>

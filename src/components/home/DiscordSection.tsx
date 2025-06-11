@@ -14,20 +14,20 @@ const DiscordSection: React.FC = () => {
             The New England Melee Discord is the official source of truth for tournament related communications, updates, and other community discussions. Join the server now for:
           </p>
           <ul className="space-y-2 mb-8 max-w-xl">
-            <li className="flex items-start">
-              <span className="inline-flex bg-indigo-900 rounded-full w-6 h-6 items-center justify-center mr-2 mt-1 flex-shrink-0">1</span>
-              <span>Separate channels for each tournament with official updates</span>
+            <li className="flex items-center">
+              <span className="inline-flex bg-indigo-900 rounded-full w-6 h-6 items-center justify-center mr-2 flex-shrink-0">1</span>
+              <span>Separate channels for each tournament</span>
             </li>
-            <li className="flex items-start">
-              <span className="inline-flex bg-indigo-900 rounded-full w-6 h-6 items-center justify-center mr-2 mt-1 flex-shrink-0">2</span>
+            <li className="flex items-center">
+              <span className="inline-flex bg-indigo-900 rounded-full w-6 h-6 items-center justify-center mr-2 flex-shrink-0">2</span>
               <span>Community discussion channels</span>
             </li>
-            <li className="flex items-start">
-              <span className="inline-flex bg-indigo-900 rounded-full w-6 h-6 items-center justify-center mr-2 mt-1 flex-shrink-0">3</span>
+            <li className="flex items-center">
+              <span className="inline-flex bg-indigo-900 rounded-full w-6 h-6 items-center justify-center mr-2 flex-shrink-0">3</span>
               <span>Slippi Direct Matchmaking</span>
             </li>
-            <li className="flex items-start">
-              <span className="inline-flex bg-indigo-900 rounded-full w-6 h-6 items-center justify-center mr-2 mt-1 flex-shrink-0">4</span>
+            <li className="flex items-center">
+              <span className="inline-flex bg-indigo-900 rounded-full w-6 h-6 items-center justify-center mr-2 flex-shrink-0">4</span>
               <span>And more!</span>
             </li>
           </ul>
