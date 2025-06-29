@@ -86,20 +86,20 @@ const TournamentMap: React.FC<TournamentMapProps> = ({ tournaments }) => {
               position={location.coordinates}
               icon={isMultiple ? multiIcon : icon}
             >
-              <Popup maxWidth={300}>
-                <div className="p-1">
+              <Popup maxWidth={300} className="max-w-[75vw] sm:max-w-[300px]">
+                <div className="px-4 py-1">
                   {isMultiple && (
-                    <div className="text-xs text-gray-500 mb-2 font-medium">
+                    <div className="text-xs text-gray-500 mb-1 font-medium">
                       {location.tournaments.length} tournaments at this location
                     </div>
                   )}
                   {location.tournaments.map((tournament, tournamentIndex) => (
                     <div 
                       key={tournament.id} 
-                      className={`${tournamentIndex > 0 ? 'border-t border-gray-200 pt-2 mt-2' : ''}`}
+                      className={`${tournamentIndex > 0 ? 'border-t border-gray-200 pt-1 mt-1' : ''}`}
                     >
-                      <h3 className="font-bold text-sm mb-1">{tournament.name}</h3>
-                      <p className="text-xs text-gray-600 mb-1">{tournament.address}</p>
+                      <h3 className="font-bold text-sm mb-0.5">{tournament.name}</h3>
+                      <p className="text-xs text-gray-600 mb-0.5">{tournament.address}</p>
                       <p className="text-xs text-gray-600">
                         {new Date(tournament.dateTime).toLocaleDateString()}
                       </p>
@@ -108,7 +108,7 @@ const TournamentMap: React.FC<TournamentMapProps> = ({ tournaments }) => {
                           href={tournament.startggLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-xs text-blue-600 hover:text-blue-800 mt-1 block"
+                          className="text-xs text-blue-600 hover:text-blue-800 mt-0.5 block"
                         >
                           View on start.gg
                         </a>
