@@ -59,11 +59,12 @@ const Tournaments: React.FC = () => {
       <div className="bg-white rounded-xl shadow-md p-6 md:p-8">
         <TournamentMap tournaments={tournaments} />
 
-
-        <div className="space-y-6">
-          {tournaments.map(tournament => (
-            <TournamentCard key={tournament.id} tournament={tournament} />
-          ))}
+        <div className="mt-6">
+          <div className="max-h-[70vh] overflow-y-auto space-y-6 pr-2">
+            {tournaments.map(tournament => (
+              <TournamentCard key={tournament.id} tournament={tournament} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
