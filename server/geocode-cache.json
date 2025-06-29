@@ -82,5 +82,47 @@
       -70.3180138
     ],
     "timestamp": 1748826800020
+  },
+  "Massachusetts, USA": {
+    "coordinates": [
+      42.4072107,
+      -71.3824374
+    ],
+    "timestamp": 1751178234865
+  },
+  "5 Brown St, Gray, ME 04039, USA": {
+    "coordinates": [
+      43.88615679999999,
+      -70.3285382
+    ],
+    "timestamp": 1751178234930
+  },
+  "Strange Brew Tavern, 88 Market St, Manchester, NH 03101, USA": {
+    "coordinates": [
+      42.9905953,
+      -71.46523189999999
+    ],
+    "timestamp": 1751178234939
+  },
+  "Best Western Plus Waterville Grand Hotel, 375 Main St, Waterville, ME 04901, USA": {
+    "coordinates": [
+      44.5705304,
+      -69.6394352
+    ],
+    "timestamp": 1751178234955
+  },
+  "Merrymac Games And Comics, 550 Daniel Webster Hwy, Merrimack, NH 03054, USA": {
+    "coordinates": [
+      42.8781422,
+      -71.4852609
+    ],
+    "timestamp": 1751178234965
+  },
+  "West Warwick, RI 02893, USA": {
+    "coordinates": [
+      41.6964092,
+      -71.5223074
+    ],
+    "timestamp": 1751178234968
   }
 }

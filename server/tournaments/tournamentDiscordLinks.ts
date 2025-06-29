@@ -23,6 +23,8 @@ export const tournamentDiscordLinks: Record<string, string> = {
   'North Corner Smash - Gray, ME': 'https://discord.gg/DyHuZCDNu3',
   '[21+] Bit Bar Melee - Salem, MA': 'https://discord.gg/bPJekTQd9Y', 
   'Strange Brew Melee - Manchester, NH': 'https://discord.gg/HFYxP4jU6y',
+  'Super Smash Saturdays - Merrimack, NH': 'https://discord.gg/PRF8bMxFBD',
+  'Waterville Smash Attack Xx - Waterville, ME' : 'https://discord.gg/A3ycnnQ4x9',
 } as const;
 
 /**
