@@ -40,7 +40,7 @@ const QuickLinks: React.FC = () => {
       icon: <ShoppingCart className="text-blue-600" size={24} />,
       title: 'Shop',
       description: 'Check out our store for New England Melee merchandise!\n\n',
-      href: 'https://shop.newenglandmelee.com',
+      href: 'https://merch.newenglandmelee.com',
       linkText: 'Shop for Merch'
     },
     {

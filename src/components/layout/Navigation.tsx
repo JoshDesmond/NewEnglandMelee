@@ -11,7 +11,7 @@ const Navigation: React.FC<NavigationProps> = ({ className = '', onLinkClick }) 
     { href: '/#tournaments', label: 'Tournaments' },
     { href: '/blog', label: 'Blog' },
     { href: 'https://calendar.google.com/calendar/u/0/embed?src=86oup09opi66vbhshrftu4uijs@group.calendar.google.com&ctz=America/New_York', label: 'Calendar' },
-    { href: 'https://shop.newenglandmelee.com', label: 'Shop' },
+    { href: 'https://merch.newenglandmelee.com', label: 'Shop' },
     { href: '/code-of-conduct', label: 'Code of Conduct' },
   ];
 
