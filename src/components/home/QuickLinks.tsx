@@ -31,7 +31,7 @@ const QuickLinks: React.FC = () => {
   const quickLinks = [
     {
       icon: <BookOpen className="text-blue-600" size={24} />,
-      title: 'Blog',
+      title: 'The New England Journal of Melee',
       description: 'Stay updated with the latest news, tournament recaps, and player spotlights from the New England Melee scene.',
       href: '/blog',
       linkText: 'Read the blog'
@@ -61,4 +61,4 @@ const QuickLinks: React.FC = () => {
   );
 };
 
-export default QuickLinks; 
+export default QuickLinks;

@@ -8,7 +8,7 @@ const BlogPage: React.FC = () => {
         {/* Journal Header */}
         <header className="text-center mb-12 border-b-2 border-gray-300 pb-8">
           <h1 className="text-4xl font-bold mb-2 text-gray-900 tracking-tight font-journal-serif">
-            New England Journal of Melee
+            The New England Journal of Melee
           </h1>
           <p className="text-sm text-gray-600 uppercase tracking-wider font-journal-sans">
             Established 2025 • Volume 1 • Issue 1

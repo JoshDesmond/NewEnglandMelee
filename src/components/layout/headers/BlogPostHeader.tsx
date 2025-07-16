@@ -11,14 +11,16 @@ const BlogPostHeader: React.FC = () => {
       <div className="flex items-start justify-between px-2 py-4">
         {/* Logo and Journal Title */}
         <div className="flex items-start space-x-4">
-          <img
-            src={logoImg}
-            alt="New England Melee Logo"
-            width={120}
-            height={50}
-            loading="lazy"
-            className="h-auto"
-          />
+          <a href="/" className="hover:opacity-80 transition-opacity">
+            <img
+              src={logoImg}
+              alt="New England Melee Logo"
+              width={120}
+              height={50}
+              loading="lazy"
+              className="h-auto"
+            />
+          </a>
           <a href="/blog" className="hidden md:block border-l border-gray-600 pl-4 hover:opacity-80 transition-opacity">
             <h1 className="text-lg font-bold text-white tracking-tight font-journal-serif">
               The New England Journal of Melee

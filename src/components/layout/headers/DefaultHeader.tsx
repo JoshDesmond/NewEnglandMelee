@@ -11,14 +11,16 @@ const DefaultHeader: React.FC = () => {
       <div className="flex items-start justify-between px-2 py-4">
         {/* Logo */}
         <div className="flex items-start">
-          <img
-            src={logoImg}
-            alt="New England Melee Logo"
-            width={120}
-            height={50}
-            loading="lazy"
-            className="h-auto"
-          />
+          <a href="/" className="hover:opacity-80 transition-opacity">
+            <img
+              src={logoImg}
+              alt="New England Melee Logo"
+              width={120}
+              height={50}
+              loading="lazy"
+              className="h-auto"
+            />
+          </a>
         </div>
           
         {/* Desktop Navigation */}
