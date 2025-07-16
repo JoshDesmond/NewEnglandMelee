@@ -20,7 +20,7 @@ const BlogList: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      {posts.map((post, index) => (
+      {posts.map((post) => (
         <div key={post.id} className="border-b border-gray-200 pb-6 last:border-b-0">
           <BlogCard post={post} />
         </div>
