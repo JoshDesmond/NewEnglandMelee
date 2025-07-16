@@ -50,7 +50,7 @@ const Tournaments: React.FC = () => {
     <section id="tournaments" className="mb-16">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-3xl font-bold text-gray-800">Upcoming Tournaments</h2>
-        <a href="/calendar" className="flex items-center text-blue-600 hover:text-blue-800 font-medium">
+        <a href="https://calendar.google.com/calendar/u/0/embed?src=86oup09opi66vbhshrftu4uijs@group.calendar.google.com&ctz=America/New_York" className="flex items-center text-blue-600 hover:text-blue-800 font-medium">
           <Calendar className="mr-1" size={18} />
           View Full Calendar
         </a>
