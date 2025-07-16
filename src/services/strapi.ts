@@ -30,7 +30,7 @@ const getImageUrl = (image: any) => {
 
 export async function getBlogPosts(): Promise<BlogPost[]> {
   try {
-    const response = await fetch(`${API_URL}/blogs?populate=*`, { headers });
+    const response = await fetch(`${API_URL}/blogs?populate=*&sort=date:desc`, { headers });
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }

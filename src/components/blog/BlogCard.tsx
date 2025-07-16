@@ -17,25 +17,64 @@ interface BlogCardProps {
 
 const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
   return (
-    <article className="bg-white rounded-xl shadow-lg flex flex-col md:flex-row overflow-hidden hover:shadow-2xl transition-shadow border border-gray-100">
-      <img
-        src={post.image}
-        alt={post.title}
-        className="w-full md:w-48 h-48 object-cover object-center md:rounded-l-xl md:rounded-r-none rounded-t-xl"
-      />
-      <div className="flex-1 p-6 flex flex-col justify-between">
-        <div>
-          <h2 className="text-2xl font-bold mb-2">
-            <Link to={`/blog/${post.slug}`} className="text-blue-700 hover:text-blue-900 transition-colors">
-              {post.title}
+    <article className="group">
+      {/* Article Header */}
+      <div className="mb-4">
+        <h2 className="text-xl font-bold mb-2 leading-tight font-journal-serif">
+          <Link 
+            to={`/blog/${post.slug}`} 
+            className="text-gray-900 hover:text-blue-800 transition-colors duration-200"
+          >
+            {post.title}
+          </Link>
+        </h2>
+        
+        {/* Author and Date */}
+        <div className="flex items-center text-sm text-gray-600 mb-3 font-journal-sans">
+          <span className="font-medium">{post.author}</span>
+          <span className="mx-2">•</span>
+          <span>{new Date(post.date).toLocaleDateString('en-US', { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+          })}</span>
+        </div>
+      </div>
+
+      {/* Article Content */}
+      <div className="flex gap-6">
+        {/* Image */}
+        <div className="flex-shrink-0">
+          <img
+            src={post.image}
+            alt={post.title}
+            className="w-32 h-24 object-cover rounded border border-gray-200"
+          />
+        </div>
+        
+        {/* Abstract */}
+        <div className="flex-1">
+          <p className="text-gray-700 text-sm leading-relaxed font-journal-sans">
+            {post.excerpt}
+          </p>
+          
+          {/* Read More Link */}
+          <div className="mt-3">
+            <Link 
+              to={`/blog/${post.slug}`}
+              className="text-blue-700 hover:text-blue-900 text-sm font-medium inline-flex items-center group/link font-journal-sans"
+            >
+              Read Full Article
+              <svg 
+                className="w-3 h-3 ml-1 group-hover/link:translate-x-1 transition-transform" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
             </Link>
-          </h2>
-          <div className="flex items-center text-sm text-gray-500 mb-4 gap-2">
-            <span className="font-medium">{post.author}</span>
-            <span className="mx-2">•</span>
-            <span>{new Date(post.date).toLocaleDateString()}</span>
           </div>
-          <p className="text-gray-700 text-base line-clamp-3">{post.excerpt}</p>
         </div>
       </div>
     </article>
