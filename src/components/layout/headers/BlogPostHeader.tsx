@@ -7,7 +7,7 @@ const BlogPostHeader: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-gray-900 shadow-md">
+    <header className="bg-gray-900 shadow-md md:min-w-[920px]">
       <div className="flex items-start justify-between px-2 py-4">
         {/* Logo and Journal Title */}
         <div className="flex items-start space-x-4">
@@ -21,7 +21,7 @@ const BlogPostHeader: React.FC = () => {
               className="h-auto"
             />
           </a>
-          <a href="/blog" className="hidden md:block border-l border-gray-600 pl-4 hover:opacity-80 transition-opacity">
+          <a href="/blog" className="border-l border-gray-600 pl-4 hover:opacity-80 transition-opacity">
             <h1 className="text-lg font-bold text-white tracking-tight font-journal-serif">
               The New England Journal of Melee
             </h1>
@@ -51,15 +51,6 @@ const BlogPostHeader: React.FC = () => {
         <div className="fixed top-0 left-0 right-0 bg-gray-900 bg-opacity-95 shadow-lg md:hidden z-50">
           <div className="p-4">
             <div className="flex items-start justify-between">
-              {/* Mobile Journal Title */}
-              <a href="/blog" className="md:hidden mb-4 hover:opacity-80 transition-opacity">
-                <h1 className="text-lg font-bold text-white tracking-tight font-journal-serif">
-                  The New England Journal of Melee
-                </h1>
-                <p className="text-xs text-gray-400 font-journal-sans">
-                  A Scholarly Publication
-                </p>
-              </a>
               <Navigation
                 className="flex flex-col space-y-4 pt-2"
                 onLinkClick={() => setMobileMenuOpen(false)}
