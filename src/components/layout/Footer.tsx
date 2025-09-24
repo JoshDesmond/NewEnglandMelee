@@ -60,6 +60,13 @@ const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
+                <a href="https://youtube.com/playlist?list=PL1Mlj9l8aY1tEGzGCNLj0SRvMVMC4jfw9&si=Yvvj4CbdI9lRL3L1" target="_blank" rel="noopener noreferrer" 
+                   className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center">
+                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
+                  The NEM Podcast
+                </a>
+              </li>
+              <li>
                 <a href="https://start.gg" target="_blank" rel="noopener noreferrer" 
                    className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center">
                   <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
