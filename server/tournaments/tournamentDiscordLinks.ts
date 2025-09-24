@@ -26,6 +26,9 @@ export const tournamentDiscordLinks: Record<string, string> = {
   'Super Smash Saturdays - Merrimack, NH': 'https://discord.gg/PRF8bMxFBD',
   'Waterville Smash Attack Xx - Waterville, ME' : 'https://discord.gg/A3ycnnQ4x9',
   'AA5 - Tom\'s Birthday Bash! Boston, MA' : 'https://discord.gg/fsv4BvMHXX',
+  '[21+] Get Smoked - Worcester, MA' : 'https://discord.gg/e4GXPWBWrh',
+  'Divine Intervention - New Britain, CT' : 'https://discord.gg/34JJwkbJ2q',
+  'Through The Woods ($250 Pot Bonus) - Burlington, VT' : 'https://discord.gg/shdCYh5yeP',
 } as const;
 
 /**

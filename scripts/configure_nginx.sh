@@ -29,4 +29,5 @@ fi
 echo "Reloading nginx..."
 sudo systemctl reload nginx
 
-echo "=== Nginx configuration complete! ===" 
+echo "=== Nginx configuration complete! ==="
+

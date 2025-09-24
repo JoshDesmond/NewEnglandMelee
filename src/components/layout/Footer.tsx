@@ -45,6 +45,20 @@ const Footer: React.FC = () => {
               Resources
             </h3>
             <ul className="space-y-3">
+	      <li>
+                <a href="https://braacket.com/league/nemelee/dashboard" target="_blank" rel="noopener noreferrer" 
+                   className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center">
+                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
+                  Braacket
+                </a>
+              </li>
+              <li>
+                <a href="https://benjaminsg.github.io/NESlippiLeaderboard/#/" target="_blank" rel="noopener noreferrer" 
+                   className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center">
+                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
+                  NEM Slippi Leaderboard
+                </a>
+              </li>
               <li>
                 <a href="https://start.gg" target="_blank" rel="noopener noreferrer" 
                    className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center">
