@@ -4,7 +4,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-gradient-to-b from-gray-900 to-gray-950 text-white">
       <div className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
           {/* Quick Links Section */}
           <div className="space-y-6">
             <h3 className="text-xl font-bold tracking-tight text-white border-b border-gray-700 pb-2">
@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
               Resources
             </h3>
             <ul className="space-y-3">
-	      <li>
+	            <li>
                 <a href="https://braacket.com/league/nemelee/dashboard" target="_blank" rel="noopener noreferrer" 
                    className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center">
                   <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
@@ -78,6 +78,43 @@ const Footer: React.FC = () => {
                    className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center">
                   <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
                   Melee.tv
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Media Section */}
+          <div className="space-y-6">
+            <h3 className="text-xl font-bold tracking-tight text-white border-b border-gray-700 pb-2">
+              Media
+            </h3>
+            <ul className="space-y-3">
+              <li>
+                <a href="https://bsky.app/profile/newenglandmelee.bsky.social" target="_blank" rel="noopener noreferrer"
+                   className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center">
+                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
+                  NEM Bluesky
+                </a>
+              </li>
+              <li>
+                <a href="https://x.com/NewEnglandMelee" target="_blank" rel="noopener noreferrer"
+                   className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center">
+                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
+                  NEM Twitter
+                </a>
+              </li>
+              <li>
+                <a href="https://youtube.com/playlist?list=PL1Mlj9l8aY1tEGzGCNLj0SRvMVMC4jfw9&si=Yvvj4CbdI9lRL3L1" target="_blank" rel="noopener noreferrer"
+                   className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center">
+                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
+                  The NEM Podcast
+                </a>
+              </li>
+              <li>
+                <a href="https://discord.com/invite/zfemYAwWbj" target="_blank" rel="noopener noreferrer"
+                   className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center">
+                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
+                  NEM Discord
                 </a>
               </li>
             </ul>
