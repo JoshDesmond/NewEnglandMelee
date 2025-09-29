@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
                 <a href="https://braacket.com/league/nemelee/dashboard" target="_blank" rel="noopener noreferrer" 
                    className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center">
                   <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
-                  Braacket
+                  NEM Braacket
                 </a>
               </li>
               <li>
