@@ -1,0 +1,41 @@
+# Dependabot opens PRs to update dependencies. Runs on GitHub (no VM cron).
+# Docs: https://docs.github.com/en/code-security/dependabot
+
+version: 2
+registries: {}
+
+# Each entry under "updates" is one place Dependabot will look for lockfiles (e.g. package-lock.json).
+updates:
+  # Root of the repo (frontend / app)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "09:07"   # UTC; 4:07am EST
+    # Security-only: PRs only when a dependency has a known vulnerability.
+    update-types:
+      - "security"
+    # To run any updates (stay up to date) instead, replace the block above with:
+    # open-pull-requests-limit: 5
+    # groups:
+    #   dependency-updates:
+    #     patterns: ["*"]
+    #     update-types: ["minor", "patch"]   # add "major" if you want major version bumps too
+
+  # API server (separate package.json)
+  - package-ecosystem: "npm"
+    directory: "/server"
+    schedule:
+      interval: "daily"
+      time: "09:07"
+    update-types:
+      - "security"
+
+  # Strapi CMS (separate package.json)
+  - package-ecosystem: "npm"
+    directory: "/strapi"
+    schedule:
+      interval: "daily"
+      time: "09:07"
+    update-types:
+      - "security"
