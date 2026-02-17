@@ -13,18 +13,11 @@ if ! command -v pm2 &> /dev/null; then
     sudo npm install -g pm2
 fi
 
-# Clear system caches
-echo "Clearing system caches..."
-sudo sync && sudo sysctl vm.drop_caches=3
-
 cd $STRAPI_DIR
 
-# Update dependencies and build
-echo "Installing dependencies..."
+# Install production dependencies only (build was done locally)
+echo "Installing production dependencies..."
 npm ci --only=production
-
-echo "Building Strapi with increased memory allocation..."
-NODE_OPTIONS="--max-old-space-size=1228" npm run build
 
 # Deploy with PM2
 echo "Starting/restarting Strapi with PM2..."
