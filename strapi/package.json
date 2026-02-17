@@ -34,6 +34,9 @@
     "node": ">=18.0.0 <=22.x.x",
     "npm": ">=6.0.0"
   },
+  "overrides": {
+    "@casl/ability": "^6.8.0"
+  },
   "strapi": {
     "uuid": "4cd2b7f3-97f8-42d3-b655-096f2fed50f2",
     "installId": "73ab8e7e9ae2fc2bb7b2ccb00d31336f749b09cd55842df08ef84902d5f31ead"
