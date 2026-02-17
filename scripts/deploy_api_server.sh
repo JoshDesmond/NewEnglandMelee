@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-PROJECT_DIR=~/code/NewEnglandMelee
+PROJECT_DIR="${PROJECT_DIR:-$HOME/code/NewEnglandMelee}"
 SERVER_DIR=$PROJECT_DIR/server
 
 echo "=== Deploying API Server ==="

@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-# TODO share PROJECT_DIR between scripts
-PROJECT_DIR=~/code/NewEnglandMelee
+# PROJECT_DIR can be set by caller (e.g. auto-deploy.sh); default for manual runs
+PROJECT_DIR="${PROJECT_DIR:-$HOME/code/NewEnglandMelee}"
 WEB_DIR=/var/www/nem
 
 cd $PROJECT_DIR
@@ -15,10 +15,15 @@ if [ ! -d "dist" ] || [ -z "$(ls -A dist)" ]; then
 fi
 
 echo "Deploying to $WEB_DIR..."
-sudo mkdir -p $WEB_DIR
-sudo rm -rf $WEB_DIR/*
-sudo cp -R dist/* $WEB_DIR/
-sudo chown -R www-data:www-data $WEB_DIR
+WRAPPER="$PROJECT_DIR/scripts/nem-deploy-web.sh"
+if [ -x "$WRAPPER" ]; then
+  sudo "$WRAPPER" "$PROJECT_DIR"
+else
+  sudo mkdir -p $WEB_DIR
+  sudo rm -rf $WEB_DIR/*
+  sudo cp -R dist/* $WEB_DIR/
+  sudo chown -R www-data:www-data $WEB_DIR
+fi
 
 echo "Website deployment complete!"
 
