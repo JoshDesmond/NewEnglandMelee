@@ -7,7 +7,7 @@ Lightweight, dependency-free automation: pull `main`, rebuild the Vite site and 
 1. Locks so two runs never overlap.
 2. `git fetch origin main` and `git merge --ff-only origin/main` (fails if you have local changes or diverged history, so you get alerted).
 3. `npm ci` at repo root (for the Vite build).
-4. Runs `deploy_website.sh` (build → copy to `/var/www/nem`).
+4. Runs `deploy_website.sh` (build → copy to `/var/www/nem`, sync nginx via `nem-deploy-web.sh`).
 5. Runs `deploy_api_server.sh` (build server → PM2 restart).
 6. Pings **Healthchecks.io** with the run’s exit status (success = 0, failure = non-zero) so you get notified if the job fails.
 

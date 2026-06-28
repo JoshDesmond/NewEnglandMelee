@@ -1,150 +1,68 @@
 # Strapi Troubleshooting Guide
 
-This guide provides steps to diagnose and fix common issues with the Strapi deployment.
+Strapi runs under pm2 as `new-england-melee-strapi` on port 1337. The admin panel is served at `https://newenglandmelee.com/admin` via nginx path routing.
 
-## Quick Status Check
+## Quick status check
 
-1. Check if Strapi service is running:
 ```bash
-sudo systemctl status strapi
+pm2 status new-england-melee-strapi
+pm2 logs new-england-melee-strapi --lines 50
+ss -tlnp | grep 1337
+curl -s -o /dev/null -w "%{http_code}\n" http://127.0.0.1:1337/admin
 ```
 
-2. Check Strapi logs:
+## Admin panel 404
+
+Strapi serves the admin UI from `strapi/dist/build/`. If that directory is empty or missing `index.html`, `/admin` returns 404.
+
+The production server cannot run `strapi build` (OOM). Build on a dev machine and deploy:
+
 ```bash
-sudo journalctl -u strapi -n 100 --no-pager
+./scripts/deploy_strapi_from_local.sh
 ```
 
-3. Check if the process is listening on port 1337:
+## Common issues
+
+### Process not running
+
 ```bash
-sudo netstat -tulpn | grep 1337
+pm2 restart new-england-melee-strapi
+pm2 logs new-england-melee-strapi --lines 50
 ```
 
-## Common Issues and Solutions
-
-### 1. Service Not Running
-
-If `systemctl status strapi` shows the service is not running:
+### Port conflict
 
 ```bash
-# Check for errors in the service
-sudo systemctl status strapi --no-pager
-
-# Try restarting the service
-sudo systemctl restart strapi
-
-# Check logs immediately after restart
-sudo journalctl -u strapi -n 100 --no-pager
+lsof -i :1337
+pm2 delete new-england-melee-strapi
+cd ~/code/NewEnglandMelee && ./scripts/deploy_strapi.sh
 ```
 
-### 2. Port Conflicts
-
-If port 1337 is already in use:
+### Nginx not routing to Strapi
 
 ```bash
-# Find what's using port 1337
-sudo lsof -i :1337
-
-# Kill the process if needed (replace PID with actual process ID)
-sudo kill -9 PID
-```
-
-### 3. Permission Issues
-
-Check file permissions:
-
-```bash
-# Check ownership of Strapi directory
-ls -la /home/nem/code/NewEnglandMelee/strapi
-
-# Ensure correct permissions
-sudo chown -R nem:nem /home/nem/code/NewEnglandMelee/strapi
-```
-
-### 4. Environment and Configuration
-
-Verify environment setup:
-
-```bash
-# Check if .env file exists and has correct permissions
-ls -la /home/nem/code/NewEnglandMelee/strapi/.env
-
-# Verify environment variables are loaded
-sudo systemctl show strapi -p Environment
-```
-
-### 5. Nginx Configuration
-
-Check Nginx status and logs:
-
-```bash
-# Check Nginx status
-sudo systemctl status nginx
-
-# Check Nginx error logs
-sudo tail -n 100 /var/log/nginx/error.log
-
-# Test Nginx configuration
 sudo nginx -t
+sudo tail -n 50 /var/log/nginx/error.log
+cd ~/code/NewEnglandMelee && sudo ./scripts/configure_nginx.sh
 ```
 
-### 6. Memory Issues
-
-Check system resources:
+Or redeploy the website (syncs nginx via passwordless `nem-deploy-web.sh`):
 
 ```bash
-# Check memory usage
+./scripts/deploy_website.sh
+```
+
+### Memory / build failures
+
+```bash
 free -h
-
-# Check disk space
 df -h
-
-# Check process memory usage
-ps aux | grep node
 ```
 
-## Complete Reset Procedure
+Do not run `npm run build` on the server. Use `deploy_strapi_from_local.sh` instead.
 
-If all else fails, try this complete reset:
+## Environment
 
-1. Stop the service:
-```bash
-sudo systemctl stop strapi
-```
-
-2. Clear any existing processes:
-```bash
-sudo pkill -f strapi
-```
-
-3. Rebuild Strapi:
-```bash
-cd /home/nem/code/NewEnglandMelee/strapi
-npm run build
-```
-
-4. Restart the service:
-```bash
-sudo systemctl restart strapi
-```
-
-5. Check status:
-```bash
-sudo systemctl status strapi
-```
-
-## Important Notes
-
-- The Strapi service runs as user `nem`
-- Service configuration is in `/etc/systemd/system/strapi.service`
-- Logs are available through `journalctl`
-- Environment variables are loaded from `/home/nem/code/NewEnglandMelee/strapi/.env`
-- The service is configured to restart automatically on failure
-- Memory limit is set to 1GB with CPU quota at 80%
-
-## Contact
-
-If issues persist after following these steps, please:
-1. Collect all relevant logs
-2. Note any error messages
-3. Document the steps you've tried
-4. Contact the system administrator 
+- `.env`: `/home/nem/code/NewEnglandMelee/strapi/.env`
+- `PUBLIC_URL` must be `https://newenglandmelee.com`
+- Uploads: `strapi/public/uploads/`

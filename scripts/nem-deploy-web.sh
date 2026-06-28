@@ -20,3 +20,12 @@ mkdir -p "$WEB_DIR"
 rm -rf "$WEB_DIR"/*
 cp -R "$PROJECT_DIR/dist/"* "$WEB_DIR/"
 chown -R www-data:www-data "$WEB_DIR"
+
+# Sync nginx config when present (passwordless sudo path for cron/auto-deploy)
+NGINX_CONF_SOURCE="$PROJECT_DIR/scripts/nem_nginx.conf"
+NGINX_CONF_DEST="/etc/nginx/conf.d/newenglandmelee.conf"
+if [ -f "$NGINX_CONF_SOURCE" ]; then
+  cp "$NGINX_CONF_SOURCE" "$NGINX_CONF_DEST"
+  nginx -t
+  systemctl reload nginx
+fi

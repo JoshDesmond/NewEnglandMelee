@@ -15,6 +15,12 @@ fi
 
 cd $STRAPI_DIR
 
+# Admin build must come from deploy_strapi_from_local.sh (server cannot build)
+if [ ! -f "dist/build/index.html" ]; then
+    echo "ERROR: Admin build missing. Run deploy_strapi_from_local.sh on a dev machine."
+    exit 1
+fi
+
 # Install production dependencies only (build was done locally)
 echo "Installing production dependencies..."
 npm ci --only=production
@@ -32,8 +38,10 @@ if pm2 list | grep -q "new-england-melee-strapi.*online"; then
 else
     echo "❌ Strapi failed to start"
     pm2 logs new-england-melee-strapi --lines 20
+    exit 1
 fi
 
 echo "Strapi deployment complete!"
+echo "Admin panel: https://newenglandmelee.com/admin"
 echo "Strapi logs can be viewed with: pm2 logs new-england-melee-strapi"
 echo "Strapi status can be checked with: pm2 status"

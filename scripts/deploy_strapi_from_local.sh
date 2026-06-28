@@ -1,5 +1,6 @@
 #!/bin/bash
-# Build Strapi locally and transfer to server
+# Build Strapi locally and transfer to server.
+# The production server cannot run `strapi build` (OOM on ~2GB RAM).
 set -e
 
 # Configuration - adjust these for your setup
@@ -21,13 +22,13 @@ if [ ! -d "node_modules" ]; then
     npm install
 fi
 
-# Build Strapi
+# Build Strapi (admin panel assets land in dist/build/)
 echo "Building Strapi..."
-npm run build
+NODE_OPTIONS="${NODE_OPTIONS:---max-old-space-size=4096}" npm run build
 
 # Verify build
-if [ ! -d "dist" ] || [ -z "$(ls -A dist)" ]; then
-    echo "ERROR: Build failed or produced no files"
+if [ ! -f "dist/build/index.html" ]; then
+    echo "ERROR: Admin build missing (dist/build/index.html)"
     exit 1
 fi
 
@@ -42,13 +43,12 @@ if ! ssh -o ConnectTimeout=5 -o BatchMode=yes "$SSH_HOST" exit 2>/dev/null; then
     exit 1
 fi
 
-# Transfer files
+# Transfer files (.strapi/client is included for the admin panel)
 echo "Transferring files to server..."
 rsync -avz --delete \
     --exclude 'node_modules' \
     --exclude 'src' \
     --exclude '.cache' \
-    --exclude '.strapi' \
     --exclude '.tmp' \
     --exclude 'database' \
     --exclude '.env' \

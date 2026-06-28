@@ -23,6 +23,7 @@ echo "=== Deploying API Server ==="
 cd $PROJECT_DIR
 
 echo "=== Deploying Strapi ==="
+echo "Note: Strapi admin must be built on a dev machine (./scripts/deploy_strapi_from_local.sh)."
 ./scripts/deploy_strapi.sh
 
 # Change back to project root before running next script

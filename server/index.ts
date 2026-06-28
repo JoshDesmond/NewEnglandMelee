@@ -10,7 +10,7 @@ const port = process.env.PORT || 3001;
 
 // Enable CORS for your frontend
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'https://newenglandmelee.xyz'
+  origin: process.env.FRONTEND_URL || 'https://newenglandmelee.com'
 }));
 
 // Simple in-memory cache for tournaments

@@ -11,8 +11,8 @@ export interface BlogPost {
   content: any; // Changed to any since it's a blocks array
 }
 
-const API_URL = 'https://api.newenglandmelee.xyz/api';
-const UPLOAD_URL = 'https://api.newenglandmelee.xyz'; // Base URL for uploads
+const API_URL = `${import.meta.env.VITE_STRAPI_URL || 'https://newenglandmelee.com'}/api`;
+const UPLOAD_URL = import.meta.env.VITE_STRAPI_URL || 'https://newenglandmelee.com';
 const API_TOKEN = import.meta.env.VITE_STRAPI_API_KEY;
 
 const headers = {

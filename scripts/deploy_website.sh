@@ -5,6 +5,9 @@ set -e
 PROJECT_DIR="${PROJECT_DIR:-$HOME/code/NewEnglandMelee}"
 WEB_DIR=/var/www/nem
 
+# Vite requires Node 20+; cron shells often skip nvm
+[ -s "$HOME/.nvm/nvm.sh" ] && . "$HOME/.nvm/nvm.sh"
+
 cd $PROJECT_DIR
 
 npm run build
